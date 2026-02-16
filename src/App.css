@@ -1,42 +1,75 @@
-#root {
-  max-width: 1280px;
-  margin: 0 auto;
-  padding: 2rem;
-  text-align: center;
-}
+/* Importar las fuentes de Google Fonts */
+@import url('https://fonts.googleapis.com/css2?family=Antonio:wght@100;200;300;400;500;600;700&family=Montserrat:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
 
-.logo {
-  height: 6em;
-  padding: 1.5em;
-  will-change: filter;
-  transition: filter 300ms;
-}
-.logo:hover {
-  filter: drop-shadow(0 0 2em #646cffaa);
-}
-.logo.react:hover {
-  filter: drop-shadow(0 0 2em #61dafbaa);
-}
+/* Directivas de Tailwind CSS */
+@tailwind utilities;
 
-@keyframes logo-spin {
-  from {
-    transform: rotate(0deg);
+/* Configuración de fuentes personalizadas */
+@layer base {
+  :root {
+    /* Variables para las fuentes */
+    --font-antonio: 'Antonio', sans-serif;
+    --font-montserrat: 'Montserrat', sans-serif;
   }
-  to {
-    transform: rotate(360deg);
+  
+  /* Aplicar Montserrat como fuente base del body */
+  * {
+    font-family: var(--font-montserrat);
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
   }
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  a:nth-of-type(2) .logo {
-    animation: logo-spin infinite 20s linear;
+/* Clases de utilidad personalizadas para las fuentes */
+@layer utilities {
+  .font-antonio {
+    font-family: var(--font-antonio);
+  }
+  
+  .font-montserrat {
+    font-family: var(--font-montserrat);
   }
 }
 
-.card {
-  padding: 2em;
-}
+@theme{
+  /* Cyan Custom - Una base fresca y vibrante */
+  --cyan-custom-50: #F1FCFD;
+  --cyan-custom-100: #D4F4F7;
+  --cyan-custom-200: #A8E9EF;
+  --cyan-custom-300: #6DD8E4;
+  --cyan-custom-400: #32BFD1;
+  --cyan-custom-500: #19A4B8; /* Color base intermedio */
+  --cyan-custom-600: #148496;
+  --cyan-custom-700: #126A7A;
+  --cyan-custom-800: #135763;
+  --cyan-custom-900: #144953;
+  --cyan-custom-950: #082E36;
 
-.read-the-docs {
-  color: #888;
+  /* Pink Custom - Cálido y suave */
+  --pink-custom-50: #FFEFF0;
+  --pink-custom-100: #FFD6D9;
+  --pink-custom-200: #FFA8AF;
+  --pink-custom-300: #FF707C;
+  --pink-custom-400: #FF3D4D;
+  --pink-custom-500: #F21B2D; /* Color base intermedio */
+  --pink-custom-600: #D10F1F;
+  --pink-custom-700: #AF0E1B;
+  --pink-custom-800: #91101A;
+  --pink-custom-900: #7A131A;
+  --pink-custom-950: #440509;
+
+  /* Neutros (Sin cambios según tu instrucción) */
+  --white: #FFFFFF;
+  --black: #000000;
+
+  /*tamaño de fuente*/
+  --text-mont-p-12: 12px;
+  --text-mont-p-14: 14px;
+  --text-mont-p-16: 16px;
+  --text-mont-p-18: 18px;
+  --text-mont-h4-20: 20px;
+  --text-mont-h3-24: 24px;
+  --text-mont-h2-28: 28px;
+  --text-mont-h1-32: 32px; 
 }
