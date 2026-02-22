@@ -1,36 +1,5 @@
-/* Importar las fuentes de Google Fonts */
 @import url('https://fonts.googleapis.com/css2?family=Antonio:wght@100;200;300;400;500;600;700&family=Montserrat:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
-
-/* Directivas de Tailwind CSS */
-@tailwind utilities;
-
-/* Configuración de fuentes personalizadas */
-@layer base {
-  :root {
-    /* Variables para las fuentes */
-    --font-antonio: 'Antonio', sans-serif;
-    --font-montserrat: 'Montserrat', sans-serif;
-  }
-  
-  /* Aplicar Montserrat como fuente base del body */
-  * {
-    font-family: var(--font-montserrat);
-    box-sizing: border-box;
-    margin: 0;
-    padding: 0;
-  }
-}
-
-/* Clases de utilidad personalizadas para las fuentes */
-@layer utilities {
-  .font-antonio {
-    font-family: var(--font-antonio);
-  }
-  
-  .font-montserrat {
-    font-family: var(--font-montserrat);
-  }
-}
+@import "tailwindcss";
 
 @theme{
   /* Cyan Custom - Una base fresca y vibrante */
@@ -71,5 +40,12 @@
   --text-mont-h4-20: 20px;
   --text-mont-h3-24: 24px;
   --text-mont-h2-28: 28px;
-  --text-mont-h1-32: 32px; 
+  --text-mont-h1-32: 32px;
+  
+  /*media queries*/
+  --breakpoint-cellphone: 480px;
+  --breakpoint-horizontal-cellphone: 744px;
+  --breakpoint-tablet: 834px;
+  --breakpoint-horizontal-tablet: 1194px;
+  --breakpoint-laptop: 1280px;
 }
