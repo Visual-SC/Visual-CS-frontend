@@ -1,6 +1,7 @@
 export interface HeaderProps {
     link: string;
     text: string;
+    className: string;
 }
 
 // Extendemos de HeaderProps pero omitimos 'text' para que no sea requerido

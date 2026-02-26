@@ -5,6 +5,7 @@ import AsideHeader from './components/AsideHeader/AsideHeader';
 import BurguerButton from './elements/BurguerButton/BurguerButton';
 import { useAppUX } from './context/UXContext/useAppUX';
 import BgScreen from './elements/BgScreen.tsx/BgScreen';
+import Menu from './pages/Menu/Menu';
 
 function App() {
   const asideHeader = useAppUX((state) => state.asideHeader);
@@ -18,12 +19,11 @@ function App() {
        <Header/>
        <AsideHeader asideHeader={asideHeader} toggleAsideHeader={toggleAsideHeader}/>
         <Routes>
-          <Route path="/" element={<h1>Menu</h1>} />          
+          <Route path="/" element={<Menu />} />          
           <Route path="/acerca-de" element={<h1>Acerca de</h1>} />
         </Routes>
       </BrowserRouter>
     </>
-  )
-}
+);}
 
 export default App
