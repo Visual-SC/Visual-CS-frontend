@@ -1,11 +1,8 @@
+ 
 
+const AsideMenu:React.FC = () => {
+  return <h1>AsideMenu</h1>
 
-const AsideMenu = () => {
-  return (
-    <aside>
-      
-    </aside>
-  )
 }
 
 export default AsideMenu
