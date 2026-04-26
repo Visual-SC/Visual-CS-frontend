@@ -34,7 +34,9 @@ Sistema de pedidos en kiosco para Rodson Coffee que permite a los clientes const
   categoria,
   precio,
   descripcion,
-  notas_adicionales,
+  disponible,
+  imagen,
+  ingredientes
 }
 ```
 
@@ -44,24 +46,28 @@ Sistema de pedidos en kiosco para Rodson Coffee que permite a los clientes const
 |---|-------|----------|-------------|
 | B2.5 | Crear pedido | `POST /api/orders` | Valida items, calcula total, asigna número |
 | B2.6 | Obtener pedido | `GET /api/orders/:orderNumber` | Detalle de pedido por número |
-| B2.7 | Pedidos activos | `GET /api/orders/active` | Lista para pantalla de tracking |
-| B2.8 | Actualizar estado | `PATCH /api/orders/:orderNumber/status` | Cambiar estado (uso admin) |
 
 **Modelo Order**:
 
 ```javascript
 {
-  _id, orderNumber, 
+  _id, orderNumber,
+  numero_orden,
+  fecha,
+  estado, //todos van a quedar pendiente en esta versión preliminar del MVP
   items: [
     { 
-      product,
-      quantity,
-      unitPrice,
-      subtotal 
+      nombre,
+      categoria,
+      precio,
+      descripción,
+      disponible, //por default es **true**
     }
     ],
-  total, // sunma de los subtotales
-  createdAt
+  resumen:{
+    subtotal,
+    total
+  }
 }
 ```
 
