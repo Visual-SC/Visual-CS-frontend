@@ -1,6 +1,7 @@
 import React from "react";
 //import type { HomeProps } from "./types";
 import { HomeData } from "./data";
+import { Outlet } from "react-router-dom";
 
 const Home: React.FC = () => {
   return (
@@ -13,6 +14,7 @@ const Home: React.FC = () => {
           </div>
         ))}
       </section>
+      <Outlet />
     </main>
   );
 };
