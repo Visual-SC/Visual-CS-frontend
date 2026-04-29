@@ -3,7 +3,6 @@ description: "Create a React/TypeScript/Tailwind component with structured folde
 argument-hint: "componentName and props description"
 agent: "agent"
 tools: ["create_file", "edit"]
-model: GPT-4o
 ---
 
 Create a new React component named `${input:componentName}` with the following props: `${input:props}`.
