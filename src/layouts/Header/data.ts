@@ -1,12 +1,24 @@
-import type { HeaderDataProps } from "./types";
+import type { HeaderLink,HeaderImageLink } from "./types";
 
-export const HeaderData: HeaderDataProps[] = [
+export const HeaderData: (HeaderLink | HeaderImageLink)[] = [
   {
-    id: "1",
-    content: "Welcome to the Header"
+    link: "/",
+    image: "/Logo-principal-Rodson-Coffee.png",
+    alt: "Rodson Coffee logo",
+    description: "Logo principal"
   },
   {
-    id: "2",
-    content: "This is a sample header content"
-  }
+    link: "/",
+    description: "HOME"
+  },
+  {
+    link: "/",
+    description: "ACERCA DE"
+  },
+  {
+    link: "/",
+    image: "/ci_shopping-cart.svg",
+    alt: "Carrito de compras",
+    description: "Carrito"
+  },
 ];

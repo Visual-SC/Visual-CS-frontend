@@ -1,9 +1,12 @@
-export interface HeaderProps {
-  title: string;
-  subtitle?: string;
+export interface HeaderLink {
+  description: string;
+  link: string;
+  className?: string;
 }
 
-export interface HeaderDataProps {
-  id: string;
-  content: string;
+
+export interface HeaderImageLink extends HeaderLink {
+  image: string;
+  alt: string;
 }
+
