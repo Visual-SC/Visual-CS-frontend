@@ -171,7 +171,7 @@ src/
 │   ├── useProducts.ts                  # React Query para productos
 │   ├── useOrder.ts                     # Crear y obtener órdenes
 ├── services/
-│   └── api.ts                          # Cliente API con axios/fetch
+│   └── api.ts                          # Cliente API con fetch
 ├── layouts/
 │   ├── Header.tsx
 │   └── Footer.tsx

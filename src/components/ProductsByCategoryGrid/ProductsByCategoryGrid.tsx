@@ -1,18 +1,29 @@
-import React from "react";
-import type { ProductsByCategoryGridProps } from "./types";
-import { ProductsByCategoryGridData } from "./data";
+import React, { useEffect } from "react";
+import { useProductStore } from "../../hooks/useProducts";
 
-const ProductsByCategoryGrid: React.FC<ProductsByCategoryGridProps> = () => {
+const ProductsByCategoryGrid: React.FC = () => {
+  const { products, getProducts } = useProductStore();
+  
+  useEffect(() => {
+    getProducts();
+  }, [getProducts]);
+
+  // Ahora puedes usar products para renderizar en lugar de cells
   return (
-    <div className="flex flex-col gap-2">
-      <h2 className="text-base font-semibold">ProductsByCategoryGrid</h2>
-
-      {ProductsByCategoryGridData.map((item) => (
-        <div key={item.id} className="text-sm">
-          {item.id}
-        </div>
-      ))}
-    </div>
+    <article className="grid grid-cols-3 gap-4">
+      {products.length === 0 ? (
+        <p>Cargando productos...</p>
+      ) : (
+        products.map((product) => (
+          <div
+            key={product.nombre}
+            className="bg-white rounded flex items-center justify-center min-h-20 text-lg font-semibold"
+          >
+            {product.nombre}
+          </div>
+        ))
+      )}
+    </article>
   );
 };
 
