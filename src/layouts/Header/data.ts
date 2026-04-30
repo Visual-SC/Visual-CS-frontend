@@ -5,20 +5,24 @@ export const HeaderData: (HeaderLink | HeaderImageLink)[] = [
     link: "/",
     image: "/Logo-principal-Rodson-Coffee.png",
     alt: "Rodson Coffee logo",
+    className: "flex items-center gap-2 no-underline",
     description: "Logo principal"
   },
   {
     link: "/",
-    description: "HOME"
+    description: "HOME",
+    className: "focus-visible:underline outline-none transition-colors"
   },
   {
     link: "/",
-    description: "ACERCA DE"
+    description: "ACERCA DE",
+    className: "focus-visible:underline outline-none transition-colors"
   },
   {
     link: "/",
     image: "/ci_shopping-cart.svg",
     alt: "Carrito de compras",
-    description: "Carrito"
+    description: "Carrito",
+    className: "flex items-center w-7 h-7"
   },
 ];

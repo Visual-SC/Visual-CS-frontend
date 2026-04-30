@@ -1,3 +1,4 @@
+import Footer from './layouts/Footer/Footer';
 import Header from './layouts/Header/Header';
 import Home from './pages/Home/Home'
 import { BrowserRouter, Route, Routes } from "react-router-dom";
@@ -5,7 +6,7 @@ import { BrowserRouter, Route, Routes } from "react-router-dom";
 function App() {
   return (
     <BrowserRouter>
-    <Header title='Header'/>
+    <Header/>
       <Routes>
       <Route element={<Home />}>
         <Route index element={<h1>Home</h1>} />
@@ -13,6 +14,7 @@ function App() {
         <Route path=":category/:id" element={<h1>Producto 1</h1>} />
       </Route>
      </Routes>
+    <Footer/> 
     </BrowserRouter>
   )
 }

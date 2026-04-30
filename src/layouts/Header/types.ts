@@ -1,7 +1,7 @@
 export interface HeaderLink {
   description: string;
   link: string;
-  className?: string;
+  className: string;
 }
 
 

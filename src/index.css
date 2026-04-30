@@ -7,6 +7,16 @@
   --font-montserrat: "Montserrat", ui-sans-serif, system-ui, sans-serif;
   --font-haviland: "Mr De Haviland", cursive;
 
+  /*Tamaño de letra*/
+  --text-p-12: 12px;
+  --text-p-14: 14px;
+  --text-p-16: 16px;
+  --text-p-18: 18px;
+  --text-h4-20: 20px;
+  --text-h3-24: 24px;
+  --text-h3-28: 28px;
+  --text-h3-32: 32px;
+
   /*Paleta de colores*/
   --color-white: #ffffff;
   --color-black: #000000;
