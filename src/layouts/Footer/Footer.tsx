@@ -1,9 +1,8 @@
 import React from "react";
-import type { FooterProps } from "./types";
-import { Link, Links } from "react-router-dom";
-//import { FooterData } from "./data";
+import { Link } from "react-router-dom";
 
-const Footer: React.FC<FooterProps> = () => {
+
+const Footer: React.FC = () => {
   return (
     <footer className="bg-light-blue">
       <ol className="flex justify-center text-p-18 items-center gap-8 py-4 list-none font-semibold">
@@ -22,7 +21,7 @@ const Footer: React.FC<FooterProps> = () => {
         <li>
           <Link to="https://maps.app.goo.gl/yYhd3MR2j3M4rQJc9" target="_blank" className="inline-flex  items-center focus-visible:underline outline-none">
             <img src="/uil_location-point.svg" alt="Ubicacion de rodson coffee" className="h-6 w-6 mb-1" />
-            <span className="ml-2">Carrera 20 5 -35</span>
+            <span className="ml-2">Carrera 20 53 -35</span>
           </Link>
         </li>
       </ol>

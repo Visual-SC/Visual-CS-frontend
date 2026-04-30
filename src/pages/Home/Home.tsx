@@ -1,12 +1,14 @@
 import React from "react";
-//import type { HomeProps } from "./types";
-import { HomeData } from "./data";
 import { Outlet } from "react-router-dom";
+import CategoriesAside from "../../components/CategoriesAside/CategoriesAside";
 
 const Home: React.FC = () => {
   return (
     <main className="p-6 bg-white text-black">
-      <h1 className="text-3xl font-bold text-center">Home</h1>
+     <section className="grid grid-cols-[351px_72%]">
+       <CategoriesAside />
+       <div className="col-start-2 col-end-3">Grid de productos</div>
+     </section>
       <Outlet />
     </main>
   );

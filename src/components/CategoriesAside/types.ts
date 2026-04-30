@@ -1,5 +1,8 @@
 export interface CategoriesAsideProps {}
 
-export interface CategoriesAsideDataItem {
-  id: string;
+export type CategoriesAsideDataItem = {
+  link: string;
+  textA: string; 
+  textB: string;
 }
+
