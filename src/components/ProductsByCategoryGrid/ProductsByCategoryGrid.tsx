@@ -2,13 +2,13 @@ import React, { useEffect } from "react";
 import { useProductStore } from "../../hooks/useProducts";
 
 const ProductsByCategoryGrid: React.FC = () => {
-  const { products, getProducts } = useProductStore();
-  
+  const products = useProductStore((state) => state.products);
+  const getProducts = useProductStore((state) => state.getProducts);  
+
   useEffect(() => {
     getProducts();
   }, [getProducts]);
 
-  // Ahora puedes usar products para renderizar en lugar de cells
   return (
     <article className="grid grid-cols-3 gap-4">
       {products.length === 0 ? (
