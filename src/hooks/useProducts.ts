@@ -1,4 +1,5 @@
 import { create } from "zustand";
+import { fetchProducts } from "../services/api";
 
 type Product = {
 	nombre: string;
@@ -19,12 +20,8 @@ export const useProductStore = create<ProductStore>((set) => ({
 	products: [],
 	getProducts: async () => {
 		try {
-			const response = await fetch("http://localhost:3001/api/get-products");
-			if (!response.ok) {
-				throw new Error("Error al obtener productos");
-			}
-			const data = await response.json();
-			set({ products: data.data });
+			const products = await fetchProducts();
+			set({ products });
 		} catch (error) {
 			console.error("Error fetching products:", error);
 		}

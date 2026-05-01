@@ -57,16 +57,67 @@ Sistema de carrito con acumulación de productos, visualización del total en ti
 Plano digital del local que permite al cliente elegir mesa cuando consume en el establecimiento, o tomar un número de mesa física.
 
 ### Seguimiento de orden en tiempo real
+
 Pantalla de monitoreo donde el cliente ve el estado de su pedido ("en preparación" → "listo") y sabe cuándo recoger en barra o esperar al mesero en mesa.
 
 ### Accesibilidad
+
 Interfaz diseñada con características de accesibilidad para personas con discapacidad, alineada con el propósito social de Visual SC.
 
 ### Identidad de marca
+
 Diseño alineado con la estética de Rodson Coffee: elegancia artesanal, tono cercano y experiencia premium dentro del nicho de café de especialidad en Colombia.
 
-## User Flow
+# Aspectos técnicos
 
-<div align="center">
-  <img src="./user-flow.png" alt="User Flow - Flujo de pedido en kiosco" width="400" />
-</div>
+## Manejo de la API y gestión general del estado
+
+## Conexión entre `api.ts` y `useProducts.ts`
+
+El archivo `api.ts` contiene la función `fetchProducts`, que se encarga de realizar una solicitud HTTP a la API para obtener los productos disponibles. Esta función utiliza `fetch` para enviar una solicitud GET al endpoint `http://localhost:3001/api/get-products`. Si la solicitud es exitosa, devuelve un array de productos extraído de la respuesta JSON. En caso de error, se captura y se registra en la consola.
+
+### Implementación de `fetchProducts` en `useProducts.ts`
+
+En el archivo `useProducts.ts`, se utiliza la función `fetchProducts` dentro de la implementación de un store de Zustand. Este store, llamado `useProductStore`, gestiona el estado global de los productos en la aplicación. 
+
+El store define un estado inicial con un array vacío de productos (`products: []`) y una función `getProducts` que se encarga de actualizar este estado. La función `getProducts` es asíncrona y utiliza `fetchProducts` para obtener los datos de la API. Una vez obtenidos los productos, se actualiza el estado del store con la función `set` proporcionada por Zustand:
+
+```typescript
+getProducts: async () => {
+  try {
+    const products = await fetchProducts();
+    set({ products });
+  } catch (error) {
+    console.error("Error fetching products:", error);
+  }
+}
+```
+
+### Flujo de Consumo
+
+1. **Definición de la API**: La función `fetchProducts` en `api.ts` encapsula la lógica de la solicitud HTTP, asegurando que el manejo de errores y la extracción de datos estén centralizados.
+2. **Integración con Zustand**: En `useProducts.ts`, `fetchProducts` se invoca dentro de `getProducts`, que forma parte del store de Zustand. Esto permite que los datos obtenidos de la API se almacenen en el estado global.
+3. **Consumo en Componentes**: Los componentes de React pueden consumir el estado y las funciones del store utilizando el hook `useProductStore`. Por ejemplo:
+
+```typescript
+import { useProductStore } from "../hooks/useProducts";
+
+const ProductList = () => {
+  const { products, getProducts } = useProductStore();
+
+  React.useEffect(() => {
+    getProducts();
+  }, []);
+
+  return (
+    <div>
+      {products.map((product) => (
+        <div key={product.nombre}>{product.nombre}</div>
+      ))}
+    </div>
+  );
+};
+```
+
+En este ejemplo, el componente `ProductList` utiliza el hook `useProductStore` para acceder a los productos y la función `getProducts`. Al montar el componente, se invoca `getProducts` para cargar los datos desde la API y renderizarlos en la interfaz de usuario.
+
