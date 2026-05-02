@@ -19,7 +19,6 @@ const Header: React.FC = () => {
           } else if (item.description === "Carrito" && "image" in item) {
             return <CartItem key={index} {...item} />;
           }
-
           else {
             return (
               <li key={index}>

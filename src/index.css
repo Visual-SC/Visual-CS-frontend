@@ -6,6 +6,7 @@
     /*Tipografía*/
   --font-montserrat: "Montserrat", ui-sans-serif, system-ui, sans-serif;
   --font-haviland: "Mr De Haviland", cursive;
+  --font-antonio: "Antonio", ui-sans-serif, system-ui, sans-serif;
 
   /*Tamaño de letra*/
   --text-p-12: 12px;
@@ -14,8 +15,8 @@
   --text-p-18: 18px;
   --text-h4-20: 20px;
   --text-h3-24: 24px;
-  --text-h3-28: 28px;
-  --text-h3-32: 32px;
+  --text-h2-28: 28px;
+  --text-h1-32: 32px;
 
   /*Paleta de colores*/
   --color-white: #ffffff;
@@ -57,7 +58,6 @@
   font-weight: 600;
   font-style: normal;
   display: block;
-
 }
 
 .fontB {
@@ -66,7 +66,7 @@
   font-weight: 400;
   font-style: normal;
   display: none;
-  font-size: 20px;
+  font-size: 24px;
   text-shadow: 0 2px 2px rgba(0, 0, 0, 0.51);
   color: #a7e9ee;
 }
