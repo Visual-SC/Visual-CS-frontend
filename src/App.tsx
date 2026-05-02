@@ -4,6 +4,7 @@ import Header from './layouts/Header/Header';
 import Home from './pages/Home/Home'
 import { BrowserRouter, Route, Routes } from "react-router-dom";
 import DarkBg from './layouts/DarkBg/DarkBg';
+import ShoppingCartAside from './components/ShoppingCartAside/ShoppingCartAside';
 
 type AppChilden = {
   children:  ReactNode | JSX.Element
@@ -13,6 +14,7 @@ const AppContainer: React.FC<AppChilden> = ({ children }) => {
   return(
     <>
       <Header/>
+      <ShoppingCartAside/>
       <DarkBg />
       {children}
       <Footer/> 

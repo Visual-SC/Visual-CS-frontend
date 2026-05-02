@@ -7,3 +7,4 @@ export type Product = {
 	imagen: string;
 	ingredientes?: string[];
 }
+

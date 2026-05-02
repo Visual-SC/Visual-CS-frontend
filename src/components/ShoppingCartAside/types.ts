@@ -1,10 +1,8 @@
-export interface ShoppingCartAsideProps {
-  title: string;
-  items: React.ReactNode;
-}
+import type { Product } from "../../types/product-env";
 
-export interface ShoppingCartItem {
-  id: string;
-  name: string;
-  price: number;
+export interface ProductShoppingCart extends Product {
+	cantidad: number;
+	total: number;
+	increaseQuantity: () => void;
+	decreaseQuantity: () => void;
 }
