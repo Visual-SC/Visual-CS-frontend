@@ -2,6 +2,7 @@ import React from "react";
 import { useShoppingCarProduct } from "./useShoppingfCarProduct";
 import { formatPrice } from "../../utils/formatPrice";
 
+
 const ShoppingCartProduct: React.FC = () => {
   const { productCard, increaseQuantity, decreaseQuantity } = useShoppingCarProduct();
 
@@ -51,7 +52,7 @@ const ShoppingCartProduct: React.FC = () => {
           readOnly
         />
         <button
-          className="h-9 w-9 rounded-full bg-medium-blue inline-flex items-center justify-center"
+          className="h-9 w-9 rounded-full bg-medium-blue inline-flex items-center justify-center cursor-pointer"
           onClick={increaseQuantity}
         >
           <img src="/lucide_plus.svg" className="w-6 h-6" alt="aumentar cantidad" />

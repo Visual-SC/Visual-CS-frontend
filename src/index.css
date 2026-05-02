@@ -71,4 +71,6 @@
   color: #a7e9ee;
 }
 
-
+.order-confirmation-floating{
+  left: calc( 50% - 324px );
+}

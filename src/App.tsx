@@ -5,6 +5,7 @@ import Home from './pages/Home/Home'
 import { BrowserRouter, Route, Routes } from "react-router-dom";
 import DarkBg from './layouts/DarkBg/DarkBg';
 import ShoppingCartAside from './components/ShoppingCartAside/ShoppingCartAside';
+//import OrderConfirmationFloating from './components/OrderConfirmationFloating/OrderConfirmationFloating';
 
 type AppChilden = {
   children:  ReactNode | JSX.Element
@@ -15,6 +16,7 @@ const AppContainer: React.FC<AppChilden> = ({ children }) => {
     <>
       <Header/>
       <ShoppingCartAside/>
+      {/* <OrderConfirmationFloating /> */}
       <DarkBg />
       {children}
       <Footer/> 

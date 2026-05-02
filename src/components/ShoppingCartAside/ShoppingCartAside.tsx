@@ -108,7 +108,7 @@ const ShoppingCartAside: React.FC = () => {
           type="button"
           className="w-6 h-6 absolute left-0 top-2 cursor-pointer"
           aria-label="Cerrar orden"
-          onClick={() => closeShoppingCartAside("immediate")}
+          onClick={() => closeShoppingCartAside("animated")}
         >
           <img
             src="/ep_close-bold.svg"
@@ -120,7 +120,13 @@ const ShoppingCartAside: React.FC = () => {
       </header>
       <ul className="flex flex-col mt-8">
         <ShoppingCartProduct />
+        <h2 className="mt-4 font-antonio text-h1-32 text-center ">
+          <span className="drop-shadow-[0_2px_2px_rgba(0,0,0,0.51)] text-glacier-blue">TOTAL:</span>
+          <span className="text-black ml-2">$9.000</span>
+        </h2>
+        <button className="w-62 h-12 rounded-xl bg-medium-blue text-black text-center text-p-16 font-semibold mx-auto mt-4">Confirmar orden</button>
       </ul>  
+      
     </aside>
   );
 };

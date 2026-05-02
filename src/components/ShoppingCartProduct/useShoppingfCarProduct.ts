@@ -2,9 +2,9 @@ import type { ProductShoppingCart } from "./types";
 import React from "react";
 
 export const useShoppingCarProduct = () =>{
-    const [quantity, setQuantity] = React.useState<number>(1);
+  const [quantity, setQuantity] = React.useState<number>(1);
 
-    const productCard: ProductShoppingCart = {
+  const productCard: ProductShoppingCart = {
         nombre: "Campesino",
         categoria: "Café",
         precio: 9000,
