@@ -1,6 +1,8 @@
 import React, { useEffect } from "react";
 import { useProductStore } from "../../hooks/useProducts";
 import PaginationProducts from "../PaginationProducts/PaginationProducts";
+import LoadingProducts from "../LoadingProducts/LoadingProducts";
+import ProductCard from "../ProductCard/ProductCard";
 
 const ProductsByCategoryGrid: React.FC = () => {
   const products = useProductStore((state) => state.products);
@@ -14,15 +16,14 @@ const ProductsByCategoryGrid: React.FC = () => {
     <>
     <article className="grid grid-cols-3 gap-4">
       {products.length === 0 ? (
-        <p>Cargando productos...</p>
+        <LoadingProducts />
       ) : (
-        products.map((product) => (
-          <div
+        products.slice(0, 9).map((product) => (
+          <ProductCard
             key={product.nombre}
-            className="bg-white rounded flex items-center justify-center min-h-20 text-lg font-semibold"
-          >
-            {product.nombre}
-          </div>
+            nombre={product.nombre} 
+            precio={product.precio}
+          />
         ))
       )}
       

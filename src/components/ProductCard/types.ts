@@ -1,5 +1,3 @@
-export interface ProductCardProps {}
+import type { Product } from "../../types/product-env";
 
-export interface ProductCardDataItem {
-  id: string;
-}
+export type ProductCardProps = Omit<Product, "categoria"| "disponible"|"ingredientes"|"imagen"|"descripcion"> 

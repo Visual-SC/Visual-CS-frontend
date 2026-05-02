@@ -5,8 +5,6 @@ import React from "react";
 import type { CategoriesAsideProps } from "./types";
 import { CategoriesAsideData } from "./data";
 import { Link } from "react-router-dom";
-//import { useActiveCategory } from "./useActiveCategory";
-
 
 const CategoriesAside: React.FC<CategoriesAsideProps> = () => {
   const container = useRef<HTMLUListElement>(null);

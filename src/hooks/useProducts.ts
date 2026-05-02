@@ -1,15 +1,6 @@
 import { create } from "zustand";
 import { fetchProducts } from "../services/api";
-
-type Product = {
-	nombre: string;
-	categoria: string;
-	precio: number;
-	descripcion: string;
-	disponible: boolean;
-	imagen: string;
-	ingredientes?: string[];
-}
+import type { Product } from "../types/product-env";	
 
 type ProductStore ={
 	products: Product[];
