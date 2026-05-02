@@ -8,8 +8,11 @@ const formatPrice = (price: number): string => {
 };
 
   return (
-    <div className="flex flex-col">
+    <div className="flex flex-col cursor-pointer">
       <figure className="flex items-center justify-center relative rounded-full bg-peach-cream h-28 w-28 mx-auto">
+        <section className="h-9 w-9 absolute right-0 top-0 bg-medium-blue rounded-full flex items-center justify-center">
+          <img src="/lucide_plus.svg" className="w-6 h-6" alt ={nombre}/>
+        </section>
         <img src="/a-cup-of-coffee-free-png.png" alt={nombre} className="w-18 h-18" />  
       </figure>
       <h2 className="text-p-16 font-semibold mt-1">{nombre}</h2>

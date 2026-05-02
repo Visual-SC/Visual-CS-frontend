@@ -1,18 +1,20 @@
 import React from "react";
-import type { CartItemProps } from "./types";
-import { CartItemData } from "./data";
+import type { HeaderImageLink } from "./types";
+import { Link } from "react-router-dom";
 
-const CartItem: React.FC<CartItemProps> = () => {
+const CartItem: React.FC<HeaderImageLink> = ({description, link, image, alt}) => {
+  const [orderCount, setOrderCount] = React.useState(1);
+
   return (
-    <div className="flex flex-col gap-2">
-      <h2 className="text-base font-semibold">CartItem</h2>
-
-      {CartItemData.map((item) => (
-        <div key={item.id} className="text-sm">
-          {item.id}
-        </div>
-      ))}
-    </div>
+   <li>
+    <Link to={link} className="flex items-center w-9 h-9 relative" aria-label={`Ir a ${description}`}>
+      <img src={image} alt={alt} className="h-10 w-auto" />
+      <div className="absolute -top-1.5 -right-1.5 w-5 h-5 rounded-full bg-medium-blue 
+      text-center text-p-12 font-semibold flex items-center justify-center">
+        {orderCount}
+      </div>
+    </Link>
+   </li>
   );
 };
 

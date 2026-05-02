@@ -1,3 +1,8 @@
-import type { CartItemDataItem } from "./types";
+import type { HeaderImageLink } from "./types";
 
-export const CartItemData: CartItemDataItem[] = [];
+export const CartItemData: HeaderImageLink = {
+    link: "/",
+    image: "/ci_shopping-cart.svg",
+    alt: "Carrito de compras",
+    description: "Carrito",
+}
