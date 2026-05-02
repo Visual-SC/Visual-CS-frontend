@@ -5,14 +5,14 @@ import CartItem from "../../components/CartItem/CartItem";
 
 const Header: React.FC = () => {
   return (
-    <header className="text-white p-4">
+    <header className="text-white h-20">
       <ul className="flex list-none font-semibold text-p-16 items-center justify-between text-black w-8/12">
         {HeaderData.map((item, index) => {
           if ("image" in item && item.image && item.description !== "Carrito") {
             return (
               <li key={index}>
                 <Link to={item.link} className={item.className} aria-label={`Ir a ${item.description}`}>
-                  <img src={item.image} alt={item.alt} className="h-10 w-auto" />
+                  <img src={item.image} alt={item.alt} className="h-20 w-auto" />
                 </Link>
               </li>
             );

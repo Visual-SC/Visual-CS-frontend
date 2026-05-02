@@ -5,7 +5,7 @@ import ProductsByCategoryGrid from "../../components/ProductsByCategoryGrid/Prod
 
 const Home: React.FC = () => {
   return (
-    <main className="p-6 bg-white text-black">
+    <main className="p-4 bg-white text-black z-0">
      <section className="grid grid-cols-[351px_72%]">
        <CategoriesAside />
        <ProductsByCategoryGrid/>

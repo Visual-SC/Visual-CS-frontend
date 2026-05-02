@@ -1,13 +1,20 @@
 import React from "react";
 import type { HeaderImageLink } from "./types";
+import { useDarkBg } from "../../utils/useDarkBg";
 import { Link } from "react-router-dom";
 
+
 const CartItem: React.FC<HeaderImageLink> = ({description, link, image, alt}) => {
-  const [orderCount, setOrderCount] = React.useState(1);
+  const [orderCount, setOrderCount] = React.useState<number>(1);
+  const { toggleBg } = useDarkBg();
+
+  const showDarkBg = () => {
+    toggleBg();
+  }
 
   return (
    <li>
-    <Link to={link} className="flex items-center w-9 h-9 relative" aria-label={`Ir a ${description}`}>
+    <Link to={link} className="flex items-center w-9 h-9 relative" aria-label={`Ir a ${description}`} onClick={showDarkBg}>
       <img src={image} alt={alt} className="h-10 w-auto" />
       <div className="absolute -top-1.5 -right-1.5 w-5 h-5 rounded-full bg-medium-blue 
       text-center text-p-12 font-semibold flex items-center justify-center">

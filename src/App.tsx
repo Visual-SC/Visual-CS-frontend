@@ -3,6 +3,7 @@ import Footer from './layouts/Footer/Footer';
 import Header from './layouts/Header/Header';
 import Home from './pages/Home/Home'
 import { BrowserRouter, Route, Routes } from "react-router-dom";
+import DarkBg from './layouts/DarkBg/DarkBg';
 
 type AppChilden = {
   children:  ReactNode | JSX.Element
@@ -11,7 +12,10 @@ type AppChilden = {
 const AppContainer: React.FC<AppChilden> = ({ children }) => {
   return(
     <>
+      <Header/>
+      <DarkBg />
       {children}
+      <Footer/> 
     </>
   ) 
 }
@@ -19,7 +23,6 @@ const AppContainer: React.FC<AppChilden> = ({ children }) => {
 function App() {
   return (
     <BrowserRouter>
-    <Header/>
       <Routes>
         <Route element={<AppContainer children={<Home />} />}>
           <Route index element={null} />
@@ -27,7 +30,6 @@ function App() {
           <Route path=":category/:id" element={null} />
         </Route>
       </Routes>
-    <Footer/> 
     </BrowserRouter>
   )
 }
