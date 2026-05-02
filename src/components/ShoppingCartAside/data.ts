@@ -1,4 +1,8 @@
-import type { ShoppingCartItem } from "./types";
+type ShoppingCartItem = {
+  id: string;
+  name: string;
+  price: number;
+};
 
 export const ShoppingCartData: ShoppingCartItem[] = [
   {

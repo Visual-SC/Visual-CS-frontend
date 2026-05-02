@@ -1,7 +1,7 @@
 import React from "react";
 
 const DarkBg: React.FC = () => {
-  const [bgVisible, setBgVisible] = React.useState<boolean>(false);
+  const [bgVisible] = React.useState<boolean>(false);
 
 
   if (!bgVisible) return null;

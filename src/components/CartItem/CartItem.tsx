@@ -5,7 +5,7 @@ import { Link } from "react-router-dom";
 
 
 const CartItem: React.FC<HeaderImageLink> = ({description, link, image, alt}) => {
-  const [orderCount, setOrderCount] = React.useState<number>(1);
+  const [orderCount] = React.useState<number>(1);
   const { toggleBg } = useDarkBg();
 
   const showDarkBg = () => {
