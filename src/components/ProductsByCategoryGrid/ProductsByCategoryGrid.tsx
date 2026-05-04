@@ -3,22 +3,25 @@ import { useProductStore } from "../../hooks/useProducts";
 import PaginationProducts from "../PaginationProducts/PaginationProducts";
 import LoadingProducts from "../LoadingProducts/LoadingProducts";
 import ProductCard from "../ProductCard/ProductCard";
+import { useRouteStore } from "../../hooks/useRouteStore";
+
 
 const ProductsByCategoryGrid: React.FC = () => {
-  const products = useProductStore((state) => state.products);
-  const getProducts = useProductStore((state) => state.getProducts);  
+  const globalRoute = useRouteStore((state) => state.currentRoute);
+  const productsByCategory = useProductStore((state) => state.productsByCategory);
+  const getProductsByCategory = useProductStore((state) => state.getProductsByCategory);
 
   useEffect(() => {
-    getProducts();
-  }, [getProducts]);
+    getProductsByCategory(globalRoute);
+  }, [globalRoute, getProductsByCategory]);
 
   return (
     <>
     <article className="grid grid-cols-3 gap-4">
-      {products.length === 0 ? (
+      {productsByCategory.length === 0 ? (
         <LoadingProducts />
       ) : (
-        products.slice(0, 9).map((product) => (
+        productsByCategory.slice(0, 9).map((product) => (
           <ProductCard
             key={product.nombre}
             nombre={product.nombre} 
@@ -26,7 +29,6 @@ const ProductsByCategoryGrid: React.FC = () => {
           />
         ))
       )}
-      
     </article>
     <PaginationProducts />  
     </>

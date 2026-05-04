@@ -8,7 +8,8 @@ const CartItem: React.FC<HeaderImageLink> = ({description, link, image, alt}) =>
   const [orderCount] = React.useState<number>(1);
   const { toggleBg } = useDarkBg();
 
-  const showDarkBg = () => {
+  const showDarkBg = (e: React.MouseEvent<HTMLAnchorElement, MouseEvent>) => {
+    e.preventDefault();
     toggleBg();
   }
 

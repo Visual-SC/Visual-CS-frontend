@@ -2,14 +2,14 @@ import type { HeaderLink,HeaderImageLink } from "./types";
 
 export const HeaderData: (HeaderLink | HeaderImageLink)[] = [
   {
-    link: "/category/base-de-espresso",
+    link: "/",
     image: "/Logo-principal-Rodson-Coffee.png",
     alt: "Rodson Coffee logo",
     className: "flex items-center h-full no-underline",
     description: "Logo principal"
   },
   {
-    link: "/category/base-de-espresso",
+    link: "/",
     description: "HOME",
     className: "focus-visible:underline outline-none transition-colors"
   },

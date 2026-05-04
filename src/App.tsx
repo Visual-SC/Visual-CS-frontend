@@ -1,11 +1,10 @@
-import type { ReactNode, JSX } from 'react';
+import { type ReactNode, type JSX } from 'react';
 import Footer from './layouts/Footer/Footer';
 import Header from './layouts/Header/Header';
 import Home from './pages/Home/Home'
 import { BrowserRouter, Route, Routes } from "react-router-dom";
 import DarkBg from './layouts/DarkBg/DarkBg';
 import ShoppingCartAside from './components/ShoppingCartAside/ShoppingCartAside';
-//import OrderConfirmationFloating from './components/OrderConfirmationFloating/OrderConfirmationFloating';
 
 type AppChilden = {
   children:  ReactNode | JSX.Element
@@ -28,11 +27,8 @@ function App() {
   return (
     <BrowserRouter>
       <Routes>
-        <Route element={<AppContainer children={<Home />} />}>
-          <Route index element={null} />
-          <Route path=":category/base-de-espresso" element={null} />
-          <Route path=":category/:id" element={null} />
-        </Route>
+        <Route index path="/"  element={<AppContainer children={<Home />} />}/>
+        <Route path="/category/:category" element={<AppContainer children={<Home />} />}/>
       </Routes>
     </BrowserRouter>
   )

@@ -3,6 +3,7 @@ import type { ProductCardProps } from "./types";
 import { formatPrice } from "../../utils/formatPrice";
 
 const ProductCard: React.FC<ProductCardProps> = ({ nombre, precio }) => {
+
   return (
     <div className="flex flex-col cursor-pointer">
       <figure className="flex items-center justify-center relative rounded-full bg-peach-cream h-28 w-28 mx-auto">
