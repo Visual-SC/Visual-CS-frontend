@@ -17,13 +17,13 @@ const ProductsByCategoryGrid: React.FC = () => {
 
   return (
     <>
-    <article className="grid grid-cols-3 gap-4">
+    <article className="grid grid-cols-3 grid-rows-3 gap-4">
       {productsByCategory.length === 0 ? (
         <LoadingProducts />
       ) : (
-        productsByCategory.slice(0, 9).map((product) => (
+        productsByCategory.slice(0, 9).map((product, index) => (
           <ProductCard
-            key={product.nombre}
+            key={`${product.categoria}-${product.nombre}-${index}`}
             nombre={product.nombre} 
             precio={product.precio}
           />

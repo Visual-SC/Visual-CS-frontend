@@ -12,15 +12,14 @@ export async function fetchProducts() {
     return data.data; 
   } catch (error) {
     console.error("Error fetching products:", error);
+    return [];
   }
 }
 
 export async function fetchProductByCategory(category: string) {
   try {
     const safeCategory = encodeURIComponent(category);
-    console.log(safeCategory)
     const response = await fetch(`http://localhost:3001/api/get-products/${safeCategory}`);
-    console.log(response);
     if (!response.ok) {
       throw new Error("Error al obtener productos por categoría");
     }
@@ -29,5 +28,6 @@ export async function fetchProductByCategory(category: string) {
     return data.data;
   } catch (error) {
     console.error(`Error obteniendo productos por categoría ❌: ${category}`, error);
+    return [];
   }
 }
