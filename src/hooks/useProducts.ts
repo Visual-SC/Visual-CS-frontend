@@ -5,8 +5,9 @@ import type { Product } from "../types/product-env";
 type ProductStore ={
 	products: Product[];
 	productsByCategory: Product[];
+	totalIndexPages: number;
 	getProducts: () => Promise<void>;
-	getProductsByCategory: (category: string) => Promise<void>;
+	getProductsByCategory: (category: string, page: number, totalPages: number) => Promise<void>;
 }
 
 export const useProductStore = create<ProductStore>((set) => ({
@@ -21,13 +22,21 @@ export const useProductStore = create<ProductStore>((set) => ({
 		}
 	},
 
-	// funcion para obtener los productos por categorías desde la API ☕
+	// funcion para obtener los productos por categorías  y páginación desde la API ☕
 	productsByCategory: [],
-	getProductsByCategory: async (category: string) => {
+	totalIndexPages: 1,
+	getProductsByCategory: async (category: string, page: number, totalPages: number) => {
 		try {
-			const resolvedCategory = category || "base_de_espresso";
-			const products = await fetchProductByCategory(resolvedCategory);
-			set({ productsByCategory: products });
+			let resolvedCategory = category || "base_de_espresso";
+			let resolvedPage = page || 1;
+			
+			const data = await fetchProductByCategory(resolvedCategory, resolvedPage);
+			let resolvedTotalPages = (data && !Array.isArray(data) && data?.totalPages) || totalPages || 1;
+			
+			set({ 
+				productsByCategory: Array.isArray(data) ? data : data?.products || [],
+				totalIndexPages: resolvedTotalPages,
+			});
 		} catch (error) {
 			console.error("Error fetching products by category:", error);
 		}

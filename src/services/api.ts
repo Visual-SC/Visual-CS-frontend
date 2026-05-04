@@ -16,16 +16,25 @@ export async function fetchProducts() {
   }
 }
 
-export async function fetchProductByCategory(category: string) {
+export async function fetchProductByCategory(category: string,page: number) {
   try {
-    const safeCategory = encodeURIComponent(category);
-    const response = await fetch(`http://localhost:3001/api/get-products/${safeCategory}`);
+    let safeCategory = encodeURIComponent(category);
+    let safePage = Number(encodeURIComponent(page));
+    let totalPage: number;  
+    
+    const response = await fetch(`http://localhost:3001/api/get-products/${safeCategory}/${safePage}`);
     if (!response.ok) {
       throw new Error("Error al obtener productos por categoría");
     }
     const data = await response.json();
+  
+    totalPage = data.totalPages || 1;
 
-    return data.data;
+   
+    return {
+      products: data.data,
+      totalPages: totalPage,
+    };
   } catch (error) {
     console.error(`Error obteniendo productos por categoría ❌: ${category}`, error);
     return [];

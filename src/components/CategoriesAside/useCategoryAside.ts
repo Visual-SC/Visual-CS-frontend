@@ -14,7 +14,7 @@ export const useCategoryAside = () =>{
     const resolveIndexFromPath = (pathname: string): number | null => {
       if (pathname === "/") return 0;
 
-      const match = pathname.match(/^\/category\/([^/]+)$/);
+      const match = pathname.match(/^\/category\/([^/]+)(?:\/\d+)?$/);
       if (!match) return null;
 
       const categorySlug = decodeURIComponent(match[1]);

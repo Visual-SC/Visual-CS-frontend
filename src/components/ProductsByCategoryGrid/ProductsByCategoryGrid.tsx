@@ -8,20 +8,23 @@ import { useRouteStore } from "../../hooks/useRouteStore";
 
 const ProductsByCategoryGrid: React.FC = () => {
   const globalRoute = useRouteStore((state) => state.currentRoute);
+  const currentPage = useRouteStore((state) => state.currentPage);
   const productsByCategory = useProductStore((state) => state.productsByCategory);
+  const totalPages = useProductStore((state) => state.totalIndexPages);
   const getProductsByCategory = useProductStore((state) => state.getProductsByCategory);
 
   useEffect(() => {
-    getProductsByCategory(globalRoute);
-  }, [globalRoute, getProductsByCategory]);
+    getProductsByCategory(globalRoute, currentPage, totalPages);
+  }, [globalRoute, currentPage, getProductsByCategory, totalPages]);
 
+  
   return (
     <>
     <article className="grid grid-cols-3 grid-rows-3 gap-4">
       {productsByCategory.length === 0 ? (
         <LoadingProducts />
       ) : (
-        productsByCategory.slice(0, 9).map((product, index) => (
+        productsByCategory.map((product, index) => (
           <ProductCard
             key={`${product.categoria}-${product.nombre}-${index}`}
             nombre={product.nombre} 

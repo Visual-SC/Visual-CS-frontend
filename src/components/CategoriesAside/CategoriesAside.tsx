@@ -17,7 +17,7 @@ const CategoriesAside: React.FC<CategoriesAsideProps> = () => {
         {CategoriesAsideData.map((item, index) => (            
               <Link 
                 key={index}
-                to={`/category/${item.link}`} 
+                to={`/category/${item.link}/1`} 
                 className="relative item block text-sm text-black space-y-8 w-max mt-12 first:mt-0"
                 onClick={()=>handleClick(index)}
               >

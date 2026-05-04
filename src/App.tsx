@@ -29,6 +29,7 @@ function App() {
       <Routes>
         <Route index path="/"  element={<AppContainer children={<Home />} />}/>
         <Route path="/category/:category" element={<AppContainer children={<Home />} />}/>
+        <Route path="/category/:category/:numero" element={<AppContainer children={<Home />} />}/>
       </Routes>
     </BrowserRouter>
   )
