@@ -5,6 +5,7 @@ export type Product = {
 	descripcion: string;
 	disponible: boolean;
 	imagen: string;
+	_id: string;
 	ingredientes?: string[];
 }
 

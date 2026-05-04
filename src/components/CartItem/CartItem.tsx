@@ -6,11 +6,11 @@ import { Link } from "react-router-dom";
 
 const CartItem: React.FC<HeaderImageLink> = ({description, link, image, alt}) => {
   const [orderCount] = React.useState<number>(1);
-  const { toggleBg } = useDarkBg();
+  const { openCart } = useDarkBg();
 
   const showDarkBg = (e: React.MouseEvent<HTMLAnchorElement, MouseEvent>) => {
     e.preventDefault();
-    toggleBg();
+    openCart();
   }
 
   return (

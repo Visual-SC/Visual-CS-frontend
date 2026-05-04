@@ -1,5 +1,5 @@
 import { create } from "zustand";
-import { fetchProductByCategory, fetchProducts } from "../services/api";
+import { fechOneProductById, fetchProductByCategory, fetchProducts } from "../services/api";
 import type { Product } from "../types/product-env";	
 
 type ProductStore ={
@@ -8,6 +8,8 @@ type ProductStore ={
 	totalIndexPages: number;
 	getProducts: () => Promise<void>;
 	getProductsByCategory: (category: string, page: number, totalPages: number) => Promise<void>;
+	getOneProductById: (id: string) => Promise<void>;
+	productById: Product | null;
 }
 
 export const useProductStore = create<ProductStore>((set) => ({
@@ -41,4 +43,16 @@ export const useProductStore = create<ProductStore>((set) => ({
 			console.error("Error fetching products by category:", error);
 		}
 	},
+
+	//funcion para obtener un solo producto por su ID desde la API ☕
+	productById: null as Product | null,
+	getOneProductById: async (id: string) => {
+		try {
+			const product = await fechOneProductById(id);
+			set({ productById: product.product});
+
+		} catch (error) {
+			console.error("Error fetching product by ID:", error);
+		}
+	}
 }));

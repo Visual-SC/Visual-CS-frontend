@@ -5,6 +5,7 @@ import Home from './pages/Home/Home'
 import { BrowserRouter, Route, Routes } from "react-router-dom";
 import DarkBg from './layouts/DarkBg/DarkBg';
 import ShoppingCartAside from './components/ShoppingCartAside/ShoppingCartAside';
+import OrderConfirmationFloating from './components/OrderConfirmationFloating/OrderConfirmationFloating';
 
 type AppChilden = {
   children:  ReactNode | JSX.Element
@@ -15,7 +16,7 @@ const AppContainer: React.FC<AppChilden> = ({ children }) => {
     <>
       <Header/>
       <ShoppingCartAside/>
-      {/* <OrderConfirmationFloating /> */}
+      <OrderConfirmationFloating />
       <DarkBg />
       {children}
       <Footer/> 
@@ -29,7 +30,7 @@ function App() {
       <Routes>
         <Route index path="/"  element={<AppContainer children={<Home />} />}/>
         <Route path="/category/:category" element={<AppContainer children={<Home />} />}/>
-        <Route path="/category/:category/:numero" element={<AppContainer children={<Home />} />}/>
+        <Route path="/category/:category/:pagina" element={<AppContainer children={<Home />} />}/>
       </Routes>
     </BrowserRouter>
   )

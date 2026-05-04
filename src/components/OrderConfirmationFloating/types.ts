@@ -1,5 +1,6 @@
-export interface OrderConfirmationFloatingProps {}
+import type { Product } from "../../types/product-env";
 
-export interface OrderConfirmationFloatingDataItem {
-  id: string;
+export interface ProductOrderProps extends Product {
+  cantidad: number;
+  total: number;
 }

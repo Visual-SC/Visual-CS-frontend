@@ -10,6 +10,7 @@ const ProductsByCategoryGrid: React.FC = () => {
   const globalRoute = useRouteStore((state) => state.currentRoute);
   const currentPage = useRouteStore((state) => state.currentPage);
   const productsByCategory = useProductStore((state) => state.productsByCategory);
+
   const totalPages = useProductStore((state) => state.totalIndexPages);
   const getProductsByCategory = useProductStore((state) => state.getProductsByCategory);
 
@@ -17,7 +18,7 @@ const ProductsByCategoryGrid: React.FC = () => {
     getProductsByCategory(globalRoute, currentPage, totalPages);
   }, [globalRoute, currentPage, getProductsByCategory, totalPages]);
 
-  
+   
   return (
     <>
     <article className="grid grid-cols-3 grid-rows-3 gap-4">
@@ -29,6 +30,7 @@ const ProductsByCategoryGrid: React.FC = () => {
             key={`${product.categoria}-${product.nombre}-${index}`}
             nombre={product.nombre} 
             precio={product.precio}
+            _id={product._id}
           />
         ))
       )}

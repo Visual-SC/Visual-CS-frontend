@@ -5,13 +5,13 @@ import { gsap } from "gsap";
 import { useGSAP } from "@gsap/react";
 
 const ShoppingCartAside: React.FC = () => {
-  const { bgVisible, closeBg } = useDarkBg();
+  const { cartVisible, closeCart } = useDarkBg();
   const asideRef = React.useRef<HTMLElement | null>(null);
   const isClosingRef = React.useRef(false);
   const closeTweenRef = React.useRef<gsap.core.Tween | null>(null);
 
   React.useEffect(() => {
-    if (bgVisible) {
+    if (cartVisible) {
       isClosingRef.current = false;
       return;
     }
@@ -19,11 +19,11 @@ const ShoppingCartAside: React.FC = () => {
     isClosingRef.current = false;
     closeTweenRef.current?.kill();
     closeTweenRef.current = null;
-  }, [bgVisible]);
+  }, [cartVisible]);
 
   useGSAP(
     () => {
-      if (!bgVisible) return;
+      if (!cartVisible) return;
 
       const asideEl = asideRef.current;
       if (!asideEl) return;
@@ -39,21 +39,21 @@ const ShoppingCartAside: React.FC = () => {
         paused: true,
         onComplete: () => {
           isClosingRef.current = false;
-          closeBg();
+          closeCart();
         },
       });
     },
-    { scope: asideRef, dependencies: [bgVisible, closeBg] }
+    { scope: asideRef, dependencies: [cartVisible, closeCart] }
   );
 
-  if (!bgVisible) return null;
+  if (!cartVisible) return null;
 
   const closeShoppingCartAside = (mode: "immediate" | "animated" = "animated") => {
     if (mode === "immediate") {
       isClosingRef.current = false;
       closeTweenRef.current?.kill();
       closeTweenRef.current = null;
-      closeBg();
+      closeCart();
       return;
     }
 
@@ -61,7 +61,7 @@ const ShoppingCartAside: React.FC = () => {
 
     const asideEl = asideRef.current;
     if (!asideEl) {
-      closeBg();
+      closeCart();
       return;
     }
 
@@ -75,7 +75,7 @@ const ShoppingCartAside: React.FC = () => {
       rect.left < window.innerWidth;
 
     if (!isInViewport) {
-      closeBg();
+      closeCart();
       return;
     }
 
@@ -93,7 +93,7 @@ const ShoppingCartAside: React.FC = () => {
       overwrite: "auto",
       onComplete: () => {
         isClosingRef.current = false;
-        closeBg();
+        closeCart();
       },
     });
   };
