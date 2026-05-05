@@ -6,11 +6,12 @@ import { useDarkBg } from "../../utils/useDarkBg";
 
 const ProductCard: React.FC<ProductCardProps> = ({ nombre, precio, _id }) => {
   const getOneProductById = useProductStore((state) => state.getOneProductById);
-  const { toggleBg } = useDarkBg();
-  
+  const { toggleBg,openOrderFloating } = useDarkBg();
+
   const handleOrderFloating = () =>{
-    getOneProductById(_id);
-    toggleBg();
+   getOneProductById(_id); 
+   toggleBg();
+   openOrderFloating();
   }
 
   return (
