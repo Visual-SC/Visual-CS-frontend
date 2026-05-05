@@ -1,12 +1,20 @@
-import React from "react";
+import React, { useEffect } from "react";
 import type { HeaderImageLink } from "./types";
 import { useDarkBg } from "../../utils/useDarkBg";
 import { Link } from "react-router-dom";
-
+import { useOrderStore } from "../../hooks/useOrder";
 
 const CartItem: React.FC<HeaderImageLink> = ({description, link, image, alt}) => {
-  const [orderCount] = React.useState<number>(1);
+  let currentOrder = useOrderStore((state) => state.order);
+  //console.log(currentOrder)
+  const [orderCount,setOrderCount] = React.useState<number>(0);
   const { openCart } = useDarkBg();
+
+  useEffect(() => {
+    if(currentOrder.items.length > 0){  
+      setOrderCount(currentOrder.items.length);
+    }
+  },[currentOrder.items.length])
 
   const showDarkBg = (e: React.MouseEvent<HTMLAnchorElement, MouseEvent>) => {
     e.preventDefault();

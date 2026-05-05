@@ -6,6 +6,7 @@ import { BrowserRouter, Route, Routes } from "react-router-dom";
 import DarkBg from './layouts/DarkBg/DarkBg';
 import ShoppingCartAside from './components/ShoppingCartAside/ShoppingCartAside';
 import OrderConfirmationFloating from './components/OrderConfirmationFloating/OrderConfirmationFloating';
+import OrderAddedToast from './components/OrderAddedToast/OrderAddedToast';
 
 type AppChilden = {
   children:  ReactNode | JSX.Element
@@ -15,6 +16,7 @@ const AppContainer: React.FC<AppChilden> = ({ children }) => {
   return(
     <>
       <Header/>
+      <OrderAddedToast />
       <ShoppingCartAside/>
       <OrderConfirmationFloating />
       <DarkBg />

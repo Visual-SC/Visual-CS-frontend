@@ -5,6 +5,7 @@ export const useShoppingCarProduct = () =>{
   const [quantity, setQuantity] = React.useState<number>(1);
 
   const productCard: ProductShoppingCart = {
+      _id: "",
         nombre: "Campesino",
         categoria: "Café",
         precio: 9000,
