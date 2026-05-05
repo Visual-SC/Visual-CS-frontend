@@ -1,11 +1,11 @@
-import type { ProductShoppingCart } from "./types";
 import React from "react";
+import type { ProductCardOrderProps } from "../../types/order-env";
 
 export const useShoppingCarProduct = () =>{
   const [quantity, setQuantity] = React.useState<number>(1);
 
-  const productCard: ProductShoppingCart = {
-      _id: "",
+  const productCard: ProductCardOrderProps = {
+        _id: "",
         nombre: "Campesino",
         categoria: "Café",
         precio: 9000,
@@ -16,16 +16,17 @@ export const useShoppingCarProduct = () =>{
         total: quantity * 9000,
         increaseQuantity: () => setQuantity((prev: number) => prev + 1),
         decreaseQuantity: () => setQuantity((prev: number) => (prev > 1 ? prev - 1 : 1)),
+      discardProduct: () => undefined,
       };
 
     const increaseQuantity = (e: React.MouseEvent<HTMLButtonElement>) => {
         e.preventDefault();
-        productCard.increaseQuantity();
+        productCard?.increaseQuantity();
       };
     
       const decreaseQuantity = (e: React.MouseEvent<HTMLButtonElement>) => {
         e.preventDefault();
-        productCard.decreaseQuantity();
+        productCard?.decreaseQuantity();
       };
     
       return { productCard, increaseQuantity, decreaseQuantity };

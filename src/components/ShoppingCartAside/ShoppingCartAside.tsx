@@ -1,102 +1,22 @@
 import React from "react";
 import ShoppingCartProduct from "../ShoppingCartProduct/ShoppingCartProduct";
-import { useDarkBg } from "../../utils/useDarkBg";
-import { gsap } from "gsap";
-import { useGSAP } from "@gsap/react";
+import { useShoppingCartAside } from "./useShoppingCartAside";
+import { useOrderStore } from "../../hooks/useOrder";
+import { formatPrice } from "../../utils/formatPrice";
 
 const ShoppingCartAside: React.FC = () => {
-  const { cartVisible, closeCart } = useDarkBg();
-  const asideRef = React.useRef<HTMLElement | null>(null);
-  const isClosingRef = React.useRef(false);
-  const closeTweenRef = React.useRef<gsap.core.Tween | null>(null);
+  const order = useOrderStore((state) => state.order);
+  const increaseItemQuantity = useOrderStore((state) => state.increaseItemQuantity);
+  const decreaseItemQuantity = useOrderStore((state) => state.decreaseItemQuantity);
+  const removeItem = useOrderStore((state) => state.removeItem);
+  // hook para el control de la apertura y cierre del aside del carrito de compras
+  const shoppingCartAside = useShoppingCartAside();
+  
+  if (!shoppingCartAside) return null;
 
-  React.useEffect(() => {
-    if (cartVisible) {
-      isClosingRef.current = false;
-      return;
-    }
-
-    isClosingRef.current = false;
-    closeTweenRef.current?.kill();
-    closeTweenRef.current = null;
-  }, [cartVisible]);
-
-  useGSAP(
-    () => {
-      if (!cartVisible) return;
-
-      const asideEl = asideRef.current;
-      if (!asideEl) return;
-
-      gsap.killTweensOf(asideEl);
-      gsap.set(asideEl, { x: 0, force3D: true });
-
-      closeTweenRef.current = gsap.to(asideEl, {
-        x: () => window.innerWidth,
-        duration: 0.45,
-        ease: "power2.inOut",
-        overwrite: "auto",
-        paused: true,
-        onComplete: () => {
-          isClosingRef.current = false;
-          closeCart();
-        },
-      });
-    },
-    { scope: asideRef, dependencies: [cartVisible, closeCart] }
-  );
-
-  if (!cartVisible) return null;
-
-  const closeShoppingCartAside = (mode: "immediate" | "animated" = "animated") => {
-    if (mode === "immediate") {
-      isClosingRef.current = false;
-      closeTweenRef.current?.kill();
-      closeTweenRef.current = null;
-      closeCart();
-      return;
-    }
-
-    if (isClosingRef.current) return;
-
-    const asideEl = asideRef.current;
-    if (!asideEl) {
-      closeCart();
-      return;
-    }
-
-    const rect = asideEl.getBoundingClientRect();
-    const isInViewport =
-      rect.width > 0 &&
-      rect.height > 0 &&
-      rect.bottom > 0 &&
-      rect.right > 0 &&
-      rect.top < window.innerHeight &&
-      rect.left < window.innerWidth;
-
-    if (!isInViewport) {
-      closeCart();
-      return;
-    }
-
-    isClosingRef.current = true;
-    const tween = closeTweenRef.current;
-    if (tween) {
-      tween.restart();
-      return;
-    }
-
-    gsap.to(asideEl, {
-      x: () => window.innerWidth,
-      duration: 0.45,
-      ease: "power2.inOut",
-      overwrite: "auto",
-      onComplete: () => {
-        isClosingRef.current = false;
-        closeCart();
-      },
-    });
-  };
+  const { asideRef, closeShoppingCartAside } = shoppingCartAside;
+  
+  // control de los datos
 
   return (
     <aside
@@ -118,14 +38,46 @@ const ShoppingCartAside: React.FC = () => {
         </button>
         <h2 className="font-antonio text-h1-32 text-center drop-shadow-[0_2px_2px_rgba(0,0,0,0.51)] text-glacier-blue">TU ORDEN</h2>
       </header>
-      <ul className="flex flex-col mt-8">
-        <ShoppingCartProduct />
+     {
+        (order.items.length === 0)?(
+          <section className="flex flex-col max-w-101 mx-auto">
+            <img className="w-101 mx-auto" alt="Tu ordern está vacía" src="/sin-pedido.png"  />
+            <p className="text-center mt-8 text-h4-20 font-semibold">¿Que tal un espresso, o una torta Red Velvet para empezar</p>
+            <button className="w-62 h-12 rounded-xl bg-medium-blue
+             text-black text-center text-p-16 font-semibold mx-auto mt-4"
+              onClick={() => closeShoppingCartAside("animated")}
+             >Ver menú</button>
+          </section>
+        ): 
+      <ul className="flex flex-col mt-2 gap-4 mx-auto">
+       {
+        order.items.map((item) => (
+          <ShoppingCartProduct 
+            key={item._id} 
+            _id={item._id}
+            nombre ={item.nombre}
+            imagen={"/a-cup-of-coffee-free-png.png"}
+            cantidad={item.cantidad}
+            total={item.total}
+            precio={item.precio}
+            categoria={item.categoria}
+            disponible={item.disponible}
+            descripcion={item.descripcion}      
+            increaseQuantity={() => increaseItemQuantity(item._id)}
+            decreaseQuantity={() => decreaseItemQuantity(item._id)}
+            discardProduct={() => removeItem(item._id)}
+          />
+        ))   
+       }   
         <h2 className="mt-4 font-antonio text-h1-32 text-center ">
           <span className="drop-shadow-[0_2px_2px_rgba(0,0,0,0.51)] text-glacier-blue">TOTAL:</span>
-          <span className="text-black ml-2">$9.000</span>
+          <span className="text-black ml-2">{formatPrice(order.resumen.total)}</span>
         </h2>
         <button className="w-62 h-12 rounded-xl bg-medium-blue text-black text-center text-p-16 font-semibold mx-auto mt-4">Confirmar orden</button>
-      </ul>  
+      </ul>
+     } 
+
+       
       
     </aside>
   );

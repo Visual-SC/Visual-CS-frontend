@@ -18,7 +18,6 @@ const OrderConfirmationFloating: React.FC = () => {
     closeOrderFloating();
   }
 
-
   if(productFloatingVisible===false || !productById ) return null;
 
   return (

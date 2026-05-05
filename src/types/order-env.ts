@@ -7,6 +7,12 @@ export interface ProductOrderProps extends Product {
   total: number;
 }
 
+export interface ProductCardOrderProps extends ProductOrderProps {
+  increaseQuantity: () => void;
+  decreaseQuantity: () => void;
+  discardProduct: () => void;
+}
+
 export type ResumenOrden = {
   subtotal: number;
   total: number;

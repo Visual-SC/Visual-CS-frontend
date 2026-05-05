@@ -1,9 +1,20 @@
 import { create } from "zustand";
-import type { OrderInitial,ProductOrderProps } from "../types/order-env";
+import type { OrderInitial, ProductOrderProps, ResumenOrden } from "../types/order-env";
+
+const calculateResumen = (items: ProductOrderProps[]): ResumenOrden => {
+    const subtotal = items.reduce((acc, item) => acc + item.total, 0);
+    return {
+        subtotal,
+        total: subtotal
+    };
+};
 
 type OrderStore = {
     order: OrderInitial;
     createOrder: (products: ProductOrderProps) => void;
+    increaseItemQuantity: (productId: string) => void;
+    decreaseItemQuantity: (productId: string) => void;
+    removeItem: (productId: string) => void;
 }
 
 export const useOrderStore = create<OrderStore>((set) => ({
@@ -18,14 +29,83 @@ export const useOrderStore = create<OrderStore>((set) => ({
         }
     },
     createOrder: (products: ProductOrderProps) => {
-        //traer el producto del componente de orden flotante
-        
-        //actualizar a la orden insertando el prroducto en la clave items
-        set((state) => ({
-            order: {
-                ...state.order,
-                items: [...state.order.items, products]
-            }
-        }))
+        set((state) => {
+            const existing = state.order.items.find((item) => item._id === products._id);
+
+            const items = existing
+                ? state.order.items.map((item) => {
+                    if (item._id !== products._id) return item;
+
+                    const nextCantidad = item.cantidad + products.cantidad;
+                    return {
+                        ...item,
+                        cantidad: nextCantidad,
+                        total: nextCantidad * item.precio
+                    };
+                })
+                : [...state.order.items, products];
+
+            return {
+                order: {
+                    ...state.order,
+                    items,
+                    resumen: calculateResumen(items)
+                }
+            };
+        });
+    },
+    increaseItemQuantity: (productId: string) => {
+        set((state) => {
+            const items = state.order.items.map((item) => {
+                if (item._id !== productId) return item;
+                const nextCantidad = item.cantidad + 1;
+                return {
+                    ...item,
+                    cantidad: nextCantidad,
+                    total: nextCantidad * item.precio
+                };
+            });
+
+            return {
+                order: {
+                    ...state.order,
+                    items,
+                    resumen: calculateResumen(items)
+                }
+            };
+        });
+    },
+    decreaseItemQuantity: (productId: string) => {
+        set((state) => {
+            const items = state.order.items.map((item) => {
+                if (item._id !== productId) return item;
+                const nextCantidad = item.cantidad > 1 ? item.cantidad - 1 : 1;
+                return {
+                    ...item,
+                    cantidad: nextCantidad,
+                    total: nextCantidad * item.precio
+                };
+            });
+
+            return {
+                order: {
+                    ...state.order,
+                    items,
+                    resumen: calculateResumen(items)
+                }
+            };
+        });
+    },
+    removeItem: (productId: string) => {
+        set((state) => {
+            const items = state.order.items.filter((item) => item._id !== productId);
+            return {
+                order: {
+                    ...state.order,
+                    items,
+                    resumen: calculateResumen(items)
+                }
+            };
+        });
     }
 }));
