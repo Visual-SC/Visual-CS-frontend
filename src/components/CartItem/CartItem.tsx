@@ -6,7 +6,7 @@ import { useOrderStore } from "../../hooks/useOrder";
 
 const CartItem: React.FC<HeaderImageLink> = ({description, link, image, alt}) => {
   const currentOrder = useOrderStore((state) => state.order);
-  const orderCount = currentOrder.items.length;
+  const orderCount = currentOrder?.items?.length;
   const { openCart } = useDarkBg();
 
   const showDarkBg = (e: React.MouseEvent<HTMLAnchorElement, MouseEvent>) => {

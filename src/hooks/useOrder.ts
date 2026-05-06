@@ -15,12 +15,13 @@ type OrderStore = {
     increaseItemQuantity: (productId: string) => void;
     decreaseItemQuantity: (productId: string) => void;
     removeItem: (productId: string) => void;
+    sendOrder: () => Promise<void>;
 }
 
-export const useOrderStore = create<OrderStore>((set) => ({
+export const useOrderStore = create<OrderStore>((set, get) => ({
     order: {
         numero_orden: "",
-        fecha: new Date(),
+        fecha: new Date().toISOString(),
         estado: "pendiente",
         items: [],
         resumen: {
@@ -107,5 +108,26 @@ export const useOrderStore = create<OrderStore>((set) => ({
                 }
             };
         });
+    },
+    sendOrder: async () => {
+        const orderToSend = {
+            ...get().order,
+            numero_orden: crypto.randomUUID(),
+        };
+
+        const response = await fetch(`http://localhost:3001/api/create-order`, {
+            method: "POST",
+            headers: { "Content-Type": "application/json" },
+            body: JSON.stringify(orderToSend),
+        });
+
+        if (!response.ok) {
+            const errorBody = await response.text().catch(() => "");
+            throw new Error(`Error al crear la orden (${response.status}): ${errorBody}`);
+        }
+
+        const responseData = await response.json();
+        const createdOrder: OrderInitial = responseData.data ?? responseData;
+        set({ order: createdOrder });
     }
 }));

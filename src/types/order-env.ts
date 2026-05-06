@@ -20,7 +20,7 @@ export type ResumenOrden = {
 
 export type OrderInitial = {
     numero_orden: string,
-    fecha: Date,
+    fecha: Date | string,
     estado: EstadoOrden,
     items: ProductOrderProps[],
     resumen: ResumenOrden

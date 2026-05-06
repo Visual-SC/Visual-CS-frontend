@@ -9,6 +9,8 @@ const ShoppingCartAside: React.FC = () => {
   const increaseItemQuantity = useOrderStore((state) => state.increaseItemQuantity);
   const decreaseItemQuantity = useOrderStore((state) => state.decreaseItemQuantity);
   const removeItem = useOrderStore((state) => state.removeItem);
+  const sendOder = useOrderStore((state) => state.sendOrder);
+
   // hook para el control de la apertura y cierre del aside del carrito de compras
   const shoppingCartAside = useShoppingCartAside();
   
@@ -39,7 +41,7 @@ const ShoppingCartAside: React.FC = () => {
         <h2 className="font-antonio text-h1-32 text-center drop-shadow-[0_2px_2px_rgba(0,0,0,0.51)] text-glacier-blue">TU ORDEN</h2>
       </header>
      {
-        (order.items.length === 0)?(
+        ((order.items?.length ?? 0) === 0)?(
           <section className="flex flex-col max-w-101 mx-auto">
             <img className="w-101 mx-auto" alt="Tu ordern está vacía" src="/sin-pedido.png"  />
             <p className="text-center mt-8 text-h4-20 font-semibold">¿Que tal un espresso, o una torta Red Velvet para empezar</p>
@@ -73,7 +75,17 @@ const ShoppingCartAside: React.FC = () => {
           <span className="drop-shadow-[0_2px_2px_rgba(0,0,0,0.51)] text-glacier-blue">TOTAL:</span>
           <span className="text-black ml-2">{formatPrice(order.resumen.total)}</span>
         </h2>
-        <button className="w-62 h-12 rounded-xl bg-medium-blue text-black text-center text-p-16 font-semibold mx-auto mt-4">Confirmar orden</button>
+        <button className="w-62 h-12 rounded-xl bg-medium-blue text-black 
+        text-center text-p-16 font-semibold mx-auto mt-4"
+        onClick={async () => {
+          try {
+            await sendOder();
+            console.log("Orden enviada exitosamente");
+          } catch (error) {
+            console.error("Error al confirmar la orden:", error);
+          }
+        }}
+        >Confirmar orden</button>
       </ul>
      } 
 
