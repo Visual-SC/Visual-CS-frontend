@@ -80,6 +80,7 @@ const ShoppingCartAside: React.FC = () => {
         onClick={async () => {
           try {
             await sendOder();
+            closeShoppingCartAside("animated");
             console.log("Orden enviada exitosamente");
           } catch (error) {
             console.error("Error al confirmar la orden:", error);
@@ -87,10 +88,7 @@ const ShoppingCartAside: React.FC = () => {
         }}
         >Confirmar orden</button>
       </ul>
-     } 
-
-       
-      
+     }        
     </aside>
   );
 };

@@ -126,8 +126,15 @@ export const useOrderStore = create<OrderStore>((set, get) => ({
             throw new Error(`Error al crear la orden (${response.status}): ${errorBody}`);
         }
 
-        const responseData = await response.json();
-        const createdOrder: OrderInitial = responseData.data ?? responseData;
-        set({ order: createdOrder });
+        await response.json();
+        set({
+            order: {
+                numero_orden: "",
+                fecha: new Date().toISOString(),
+                estado: "pendiente",
+                items: [],
+                resumen: { subtotal: 0, total: 0 }
+            }
+        });
     }
 }));
