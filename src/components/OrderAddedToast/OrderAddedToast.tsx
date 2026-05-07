@@ -2,7 +2,7 @@ import { useEffect } from "react";
 import { formatPrice } from "../../utils/formatPrice";
 import { useUiStore } from "../../stores/uiStore";
 
-const AUTO_HIDE_MS = 3000;
+const AUTO_HIDE_MS = 1200;
 
 const OrderAddedToast: React.FC = () => {
   const visible = useUiStore((state) => state.addedToastVisible);

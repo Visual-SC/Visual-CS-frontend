@@ -23,5 +23,6 @@ export type OrderInitial = {
     fecha: Date | string,
     estado: EstadoOrden,
     items: ProductOrderProps[],
-    resumen: ResumenOrden
+    resumen: ResumenOrden,
+    _id?: string
 }

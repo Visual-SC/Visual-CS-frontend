@@ -3,6 +3,7 @@ import ShoppingCartProduct from "../ShoppingCartProduct/ShoppingCartProduct";
 import { useShoppingCartAside } from "./useShoppingCartAside";
 import { useOrderStore } from "../../hooks/useOrder";
 import { formatPrice } from "../../utils/formatPrice";
+import { useDarkBg } from "../../utils/useDarkBg";
 
 const ShoppingCartAside: React.FC = () => {
   const order = useOrderStore((state) => state.order);
@@ -10,6 +11,10 @@ const ShoppingCartAside: React.FC = () => {
   const decreaseItemQuantity = useOrderStore((state) => state.decreaseItemQuantity);
   const removeItem = useOrderStore((state) => state.removeItem);
   const sendOder = useOrderStore((state) => state.sendOrder);
+  const closecart = useDarkBg((state) => state.closeCart);
+  const openBg = useDarkBg((state) => state.openBg);
+  const openOrderCreated = useDarkBg((state) => state.openOrderCreated);
+  console.log(order);
 
   // hook para el control de la apertura y cierre del aside del carrito de compras
   const shoppingCartAside = useShoppingCartAside();
@@ -18,7 +23,6 @@ const ShoppingCartAside: React.FC = () => {
 
   const { asideRef, closeShoppingCartAside } = shoppingCartAside;
   
-  // control de los datos
 
   return (
     <aside
@@ -80,7 +84,9 @@ const ShoppingCartAside: React.FC = () => {
         onClick={async () => {
           try {
             await sendOder();
-            closeShoppingCartAside("animated");
+            closecart();
+            openBg();
+            openOrderCreated();
             console.log("Orden enviada exitosamente");
           } catch (error) {
             console.error("Error al confirmar la orden:", error);

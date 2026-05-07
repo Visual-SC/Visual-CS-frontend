@@ -16,6 +16,7 @@ type OrderStore = {
     decreaseItemQuantity: (productId: string) => void;
     removeItem: (productId: string) => void;
     sendOrder: () => Promise<void>;
+    clearOrder: () => void;
 }
 
 export const useOrderStore = create<OrderStore>((set, get) => ({
@@ -27,7 +28,8 @@ export const useOrderStore = create<OrderStore>((set, get) => ({
         resumen: {
             subtotal: 0,
             total: 0
-        }
+        },
+        _id:""
     },
     createOrder: (products: ProductOrderProps) => {
         set((state) => {
@@ -110,10 +112,16 @@ export const useOrderStore = create<OrderStore>((set, get) => ({
         });
     },
     sendOrder: async () => {
+        const { _id, ...rest } = get().order;
+        const numero_orden = crypto.randomUUID();
         const orderToSend = {
-            ...get().order,
-            numero_orden: crypto.randomUUID(),
+            ...rest,
+            numero_orden,
         };
+
+        set((state) => ({
+            order: { ...state.order, numero_orden }
+        }));
 
         const response = await fetch(`http://localhost:3001/api/create-order`, {
             method: "POST",
@@ -127,6 +135,8 @@ export const useOrderStore = create<OrderStore>((set, get) => ({
         }
 
         await response.json();
+    },
+    clearOrder: () => {
         set({
             order: {
                 numero_orden: "",

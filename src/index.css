@@ -74,3 +74,8 @@
 .order-confirmation-floating{
   left: calc( 50% - 324px );
 }
+
+.order-created{
+  left: calc( 50% - 388px );
+}
+

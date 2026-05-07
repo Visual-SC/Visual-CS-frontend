@@ -7,6 +7,7 @@ import DarkBg from './layouts/DarkBg/DarkBg';
 import ShoppingCartAside from './components/ShoppingCartAside/ShoppingCartAside';
 import OrderConfirmationFloating from './components/OrderConfirmationFloating/OrderConfirmationFloating';
 import OrderAddedToast from './components/OrderAddedToast/OrderAddedToast';
+import OrderCreated from './components/OrderCreated/OrderCreated';
 
 type AppChilden = {
   children:  ReactNode | JSX.Element
@@ -19,6 +20,7 @@ const AppContainer: React.FC<AppChilden> = ({ children }) => {
       <OrderAddedToast />
       <ShoppingCartAside/>
       <OrderConfirmationFloating />
+      <OrderCreated/>
       <DarkBg />
       {children}
       <Footer/> 
