@@ -34,7 +34,7 @@ const PaginationProducts: React.FC = () => {
 
   if(totalPagesIndex.length > 1) {
     return (
-    <section className="flex items-center col-start-2 col-end-3 h-11 justify-self-center">
+    <section className="flex items-center col-start-2 col-end-3 h-11 justify-self-center max-tablet-large:mx-auto max-tablet-large:mt-6">
       <button
         className="mr-6 h-11 w-11 rounded-full bg-glacier-blue inline-flex items-center justify-center"
         onClick={handleDecrementPage}

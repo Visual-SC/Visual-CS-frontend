@@ -5,7 +5,7 @@ export const HeaderData: (HeaderLink | HeaderImageLink)[] = [
     link: "/",
     image: "/Logo-principal-Rodson-Coffee.png",
     alt: "Rodson Coffee logo",
-    className: "flex items-center h-full no-underline",
+    className: "flex items-center h-full no-underline max-tablet:h-11",
     description: "Logo principal"
   },
   {
@@ -23,6 +23,6 @@ export const HeaderData: (HeaderLink | HeaderImageLink)[] = [
     image: "/ci_shopping-cart.svg",
     alt: "Carrito de compras",
     description: "Carrito",
-    className: "flex items-center w-7 h-7"
+    className: "flex items-center w-7 h-7 max-tablet:w-6 max-tablet:h-6 relative"
   },
 ];

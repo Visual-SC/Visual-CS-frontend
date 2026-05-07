@@ -28,9 +28,11 @@
   --color-light-blue: #F1FCFD;
 
   /*Media Queries*/
+  --breakpoint-xs: 320px;
   --breakpoint-cellphone: 480px;
   --breakpoint-cellphone-landscape: 833px;
   --breakpoint-tablet: 834px;
+  --breakpoint-tablet-large: 1024px;
   --breakpoint-desktop: 1280px;
 }
 

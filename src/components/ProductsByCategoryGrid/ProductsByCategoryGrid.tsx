@@ -20,8 +20,8 @@ const ProductsByCategoryGrid: React.FC = () => {
 
    
   return (
-    <>
-    <article className="grid grid-cols-3 grid-rows-3 gap-4">
+    <section className="max-tablet-large:flex flex-col max-tablet-large:mt-4">
+    <article className="grid grid-cols-3 grid-rows-3 gap-4 items-center justify-center">
       {productsByCategory.length === 0 ? (
         <LoadingProducts />
       ) : (
@@ -36,7 +36,7 @@ const ProductsByCategoryGrid: React.FC = () => {
       )}
     </article>
     <PaginationProducts />  
-    </>
+    </section>
   );
 };
 

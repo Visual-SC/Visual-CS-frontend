@@ -2,17 +2,23 @@ import React from "react";
 import { Link } from "react-router-dom";
 import { HeaderData } from "./data";
 import CartItem from "../../components/CartItem/CartItem";
+import { useDarkBg } from "../../utils/useDarkBg";
+import BurguerButton from "../../components/BurguerButton/BurguerButton";
 
 const Header: React.FC = () => {
+
+
+
   return (
-    <header className="text-white h-20">
-      <ul className="flex list-none font-semibold text-p-16 items-center justify-between text-black w-8/12">
+    <header className="text-white h-20 max-desktop:h-11 max-tablet-large:w-full flex items-center">
+      <BurguerButton />
+      <ul className="flex list-none font-semibold text-p-16 items-center justify-between text-black w-8/12 max-tablet-large:w-11/12">
         {HeaderData.map((item, index) => {
           if ("image" in item && item.image && item.description !== "Carrito") {
             return (
               <li key={index}>
                 <Link to={item.link} className={item.className} aria-label={`Ir a ${item.description}`}>
-                  <img src={item.image} alt={item.alt} className="h-20 w-auto" />
+                  <img src={item.image} alt={item.alt} className="max-tablet-large:h-11 h-20 w-auto max-tablet:h-full" />
                 </Link>
               </li>
             );

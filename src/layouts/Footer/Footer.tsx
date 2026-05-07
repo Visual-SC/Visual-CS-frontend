@@ -4,7 +4,7 @@ import { Link } from "react-router-dom";
 
 const Footer: React.FC = () => {
   return (
-    <footer className="bg-light-blue">
+    <footer className="bg-light-blue max-tablet-large:mt-4">
       <ol className="flex justify-center text-p-18 items-center gap-8 py-4 list-none font-semibold">
         <li>
           <Link to="https://www.instagram.com/rodsoncoffee/" target="_blank"  className="inline-flex items-center focus-visible:underline outline-none">

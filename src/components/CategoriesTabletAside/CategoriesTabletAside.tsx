@@ -2,24 +2,16 @@ import React from "react";
 import type { CategoriesAsideProps } from "./types";
 import { CategoriesAsideData } from "./data";
 import { Link } from "react-router-dom";
-import { useCategoryAside } from "./useCategoryAside";
 
-const CategoriesAside: React.FC<CategoriesAsideProps> = () => {
-  const { container, handleClickGSAP } = useCategoryAside();
-
-  const handleClick = (index: number) => {
-    handleClickGSAP(index);
-  }
-
+const CategoriesTabletAside: React.FC<CategoriesAsideProps> = () => {
   return (
-    <aside className="max-tablet-large:hidden flex flex-col gap-2 col-start-1 col-end-2">
-      <ul className="flex flex-col" ref={container}>
-        {CategoriesAsideData.map((item, index) => (            
+    <aside className="bg-white w-130 z-20 fixed h-full top-0 left-0 p-4 flex flex-col">
+       <ul className="flex flex-col">
+            {CategoriesAsideData.map((item, index) => (            
               <Link 
                 key={index}
                 to={`/category/${item.link}/1`} 
                 className="relative item block text-sm text-black space-y-8 w-max mt-12 first:mt-0"
-                onClick={()=>handleClick(index)}
               >
                 <span className="fontA absolute top-0 left-0 right-0 bottom-0">
                   {item.textA}
@@ -29,10 +21,9 @@ const CategoriesAside: React.FC<CategoriesAsideProps> = () => {
                 </span>
               </Link>
           ))}
-      </ul>
+       </ul>
     </aside>
   );
 };
 
-export default CategoriesAside;
-
+export default CategoriesTabletAside;
