@@ -73,8 +73,16 @@
   color: #a7e9ee;
 }
 
-.order-confirmation-floating{
-  left: calc( 50% - 324px );
+@media (max-width: 767.98px) {
+  .order-confirmation-floating{
+    left: calc( 50% - 324px );
+  }
+}
+
+@media (min-width: 1024px) {
+  .order-confirmation-floating{
+    left: calc( 50% - 324px );
+  }
 }
 
 .order-created{

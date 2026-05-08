@@ -2,13 +2,9 @@ import React from "react";
 import { Link } from "react-router-dom";
 import { HeaderData } from "./data";
 import CartItem from "../../components/CartItem/CartItem";
-import { useDarkBg } from "../../utils/useDarkBg";
 import BurguerButton from "../../components/BurguerButton/BurguerButton";
 
 const Header: React.FC = () => {
-
-
-
   return (
     <header className="text-white h-20 max-desktop:h-11 max-tablet-large:w-full flex items-center">
       <BurguerButton />

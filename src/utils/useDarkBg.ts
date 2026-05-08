@@ -5,6 +5,7 @@ type DarkBgStore = {
   cartVisible: boolean;
   productFloatingVisible: boolean;
   orderCreatedVisible: boolean;
+  menuOpen: boolean;
   toggleBg: () => void;
   openBg: () => void;
   closeBg: () => void;
@@ -14,6 +15,8 @@ type DarkBgStore = {
   closeOrderFloating: () => void;
   openOrderCreated: () => void;
   closeOrderCreated: () => void;
+  openMenu: () => void;
+  closeMenu: () => void;
 };
 
 export const useDarkBg = create<DarkBgStore>((set) => ({
@@ -21,6 +24,7 @@ export const useDarkBg = create<DarkBgStore>((set) => ({
   cartVisible: false,
   productFloatingVisible: false,
   orderCreatedVisible: false,
+  menuOpen: false,
   toggleBg: () => set((state) => ({ bgVisible: !state.bgVisible })),
   openBg: () => set({ bgVisible: true }),
   closeBg: () => set({ bgVisible: false, cartVisible: false, productFloatingVisible: false }),
@@ -29,5 +33,7 @@ export const useDarkBg = create<DarkBgStore>((set) => ({
   openOrderFloating: () => set({ productFloatingVisible: true }),
   closeOrderFloating: () => set({ productFloatingVisible: false }),
   openOrderCreated: () => set({ orderCreatedVisible: true }),
-  closeOrderCreated: () => set({ orderCreatedVisible: false })
+  closeOrderCreated: () => set({ orderCreatedVisible: false }),
+  openMenu: () => set({ menuOpen: true, bgVisible: true }),
+  closeMenu: () => set({ menuOpen: false, bgVisible: false }),
 }));    

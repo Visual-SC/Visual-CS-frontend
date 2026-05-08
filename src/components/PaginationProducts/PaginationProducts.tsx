@@ -34,7 +34,7 @@ const PaginationProducts: React.FC = () => {
 
   if(totalPagesIndex.length > 1) {
     return (
-    <section className="flex items-center col-start-2 col-end-3 h-11 justify-self-center max-tablet-large:mx-auto max-tablet-large:mt-6">
+    <section className="flex items-center justify-center h-11 w-full mt-6">
       <button
         className="mr-6 h-11 w-11 rounded-full bg-glacier-blue inline-flex items-center justify-center"
         onClick={handleDecrementPage}
@@ -69,7 +69,7 @@ const PaginationProducts: React.FC = () => {
   );
   }else{
     return (
-      <section className="flex items-center col-start-2 col-end-3 h-11 justify-self-center">
+      <section className="flex items-center justify-center h-11 w-full mt-6">
         <div className="flex items-center justify-center space-x-2 h-full">
         {totalPagesIndex.map((item) => {
           const isActive = item.page === currentPage;

@@ -71,7 +71,7 @@ const OrderConfirmationFloatingContent: React.FC<FloatingContentProps> = ({
   };
 
   return (
-    <section className="order-confirmation-floating floating flex flex-col gap-2 w-162 fixed top-16 left-0 p-4 rounded-lg bg-white z-20">
+    <section className="order-confirmation-floating floating flex flex-col gap-2 w-162 fixed top-16 left-0 p-4 rounded-lg bg-white z-20 md:top-1/2 md:left-1/2 md:-translate-x-1/2 md:-translate-y-1/2 lg:top-16 lg:left-0 lg:translate-x-0 lg:translate-y-0">
       <header className="inline-flex justify-between">
         <h1 className="text-2xl font-semibold">{productById.nombre}</h1>
         <button className="h-7 w-7 cursor-pointer" onClick={closeOrder}>
