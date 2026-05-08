@@ -19,8 +19,9 @@ const PaginationProducts: React.FC = () => {
   const handleIncrementPage = () => {
     const resolvedCategory = globalRoute || "base_de_espresso";
     const nextPage = Math.min(currentPage + 1, PaginationProductsData.length);
-    if(nextPage >1 && nextPage <= totalIndexPages){
+    if(nextPage > 1 && nextPage <= totalIndexPages){
       setRoute(`/category/${resolvedCategory}/${nextPage}`);
+      window.scrollTo({ top: 0, behavior: "smooth" });
     }
   };
 
@@ -29,6 +30,7 @@ const PaginationProducts: React.FC = () => {
     const prevPage = Math.max(currentPage - 1, 1);
     if(prevPage >= 1 && prevPage <= totalIndexPages){
       setRoute(`/category/${resolvedCategory}/${prevPage}`);
+      window.scrollTo({ top: 0, behavior: "smooth" });
     }
   };
 
@@ -79,6 +81,7 @@ const PaginationProducts: React.FC = () => {
               className={`h-full w-8 transition-all duration-300 
               ${isActive ? 'text-h3-24 font-semibold' : 'text-h4-20 font-regular'}`}
               onClick={() => {
+                
                 const resolvedCategory = globalRoute || "base_de_espresso";
                 setRoute(`/category/${resolvedCategory}/${item.page}`);
               }}

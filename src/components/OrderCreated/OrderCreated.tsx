@@ -7,7 +7,6 @@ const OrderCreated: React.FC = () => {
   const { orderCreatedVisible, closeOrderCreated,closeBg } = useDarkBg();
   const clearOrder = useOrderStore((state) => state.clearOrder);
   const order = useOrderStore((state) => state.order);
-  console.log(order);
 
   const closeAlll = () =>{
     closeOrderCreated();

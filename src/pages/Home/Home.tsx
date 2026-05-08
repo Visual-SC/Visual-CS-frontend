@@ -6,7 +6,7 @@ import CategoriesTabletAside from "../../components/CategoriesTabletAside/Catego
 
 const Home: React.FC = () => {
   return (
-    <main className="p-4 bg-white text-black z-0">
+    <main className="p-4 bg-white text-black z-0 ">
 
       <section className="grid max-tablet-large:flex max-tablet-large:flex-col grid-cols-[351px_72%]">
         <CategoriesTabletAside />

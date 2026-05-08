@@ -14,7 +14,6 @@ const ShoppingCartAside: React.FC = () => {
   const closecart = useDarkBg((state) => state.closeCart);
   const openBg = useDarkBg((state) => state.openBg);
   const openOrderCreated = useDarkBg((state) => state.openOrderCreated);
-  console.log(order);
 
   // hook para el control de la apertura y cierre del aside del carrito de compras
   const shoppingCartAside = useShoppingCartAside();

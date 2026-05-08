@@ -9,6 +9,7 @@ import OrderConfirmationFloating from './components/OrderConfirmationFloating/Or
 import OrderAddedToast from './components/OrderAddedToast/OrderAddedToast';
 import OrderCreated from './components/OrderCreated/OrderCreated';
 import CategoriesTabletAside from './components/CategoriesTabletAside/CategoriesTabletAside';
+import HeaderCellphone from './layouts/HeaderCellphone/HeaderCellphone';
 
 type AppChilden = {
   children:  ReactNode | JSX.Element
@@ -18,6 +19,7 @@ const AppContainer: React.FC<AppChilden> = ({ children }) => {
   return(
     <>
       <Header/>
+      <HeaderCellphone/>
       <OrderAddedToast />
       <ShoppingCartAside/>
       <OrderConfirmationFloating />

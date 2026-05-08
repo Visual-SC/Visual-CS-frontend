@@ -6,7 +6,8 @@ import BurguerButton from "../../components/BurguerButton/BurguerButton";
 
 const Header: React.FC = () => {
   return (
-    <header className="text-white h-20 max-desktop:h-11 max-tablet-large:w-full flex items-center">
+    <header className="bg-white h-20 max-desktop:h-11 max-tablet-large:w-full flex items-center
+    max-cellphone:hidden">
       <BurguerButton />
       <ul className="flex list-none font-semibold text-p-16 items-center justify-between text-black w-8/12 max-tablet-large:w-11/12">
         {HeaderData.map((item, index) => {
