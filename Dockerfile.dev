@@ -1,0 +1,28 @@
+# =========================================
+# Stage: Development (Vite React.js App)
+# =========================================
+ARG NODE_VERSION=24.14.0-alpine
+ 
+FROM node:${NODE_VERSION} AS dev
+ 
+# Set working directory inside the container
+WORKDIR /app
+ 
+# Enable reliable file watching (especially on Windows/macOS bind mounts)
+ENV CHOKIDAR_USEPOLLING=true
+ENV CHOKIDAR_INTERVAL=1000
+
+# Copy dependency manifests first (better caching)
+COPY --chown=node:node package.json package-lock.json ./
+
+# Clean, reproducible install
+RUN npm ci
+
+# Copy rest of the source code
+COPY --chown=node:node . .
+
+# Expose Vite dev server port
+EXPOSE 5173
+ 
+# Run Vite in dev mode, accessible outside the container
+CMD ["npm", "run", "dev", "--", "--host", "0.0.0.0", "--port", "5173"]

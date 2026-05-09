@@ -32,6 +32,114 @@ La interfaz incluye características de **accesibilidad para personas con discap
 ![Express.js](https://img.shields.io/badge/express.js-000000?style=for-the-badge&logo=express&logoColor=white)
 ![Typescript](https://img.shields.io/badge/TypeScript-3178C6?style=for-the-badge&logo=typescript&logoColor=white)
 
+# Ejecutar con Docker (paso a paso)
+
+> Este repositorio contiene el **frontend (React + Vite)**.
+> La API se consume desde el navegador. La URL del backend se configura con la variable `VITE_API_BASE_URL`.
+
+## Configurar URL del Backend (recomendado)
+
+Este frontend lee la URL base del backend desde `VITE_API_BASE_URL`.
+
+1. Crea un archivo `.env` en la raíz (puedes copiar [.env.example](.env.example)).
+2. Coloca la URL pública de tu despliegue (por ejemplo el asociado a `visual-cs-backend-backend`).
+
+Ejemplo:
+
+```bash
+VITE_API_BASE_URL=https://TU_BACKEND_PUBLICO
+```
+
+## Requisitos
+
+1. Tener instalado **Docker Desktop** (incluye `docker compose`).
+2. Estar ubicado en la raíz del proyecto (donde están `Dockerfile`, `Dockerfile.dev` y `docker-compose.yml`).
+
+## Opción A (recomendada): Docker Compose
+
+### 1) Producción (build + Nginx)
+
+1. Construir y levantar el contenedor:
+
+```bash
+docker compose up --build app
+```
+
+2. Abrir la app:
+
+- http://localhost:8080
+
+3. Detener y limpiar:
+
+```bash
+docker compose down
+```
+
+### 2) Desarrollo (Vite + hot reload)
+
+1. Levantar el entorno de desarrollo:
+
+```bash
+docker compose up --build dev
+```
+
+2. Abrir la app:
+
+- http://localhost:5173
+
+3. Detener:
+
+```bash
+docker compose down
+```
+
+## Opción B: Docker “puro” (sin compose)
+
+### Producción
+
+```bash
+docker build -t visualsc-frontend -f Dockerfile .
+docker run --rm -p 8080:80 visualsc-frontend
+```
+
+Abrir: http://localhost:8080
+
+### Desarrollo
+
+```bash
+docker build -t visualsc-frontend-dev -f Dockerfile.dev .
+docker run --rm -it -p 5173:5173 -v ${PWD}:/app -v /app/node_modules visualsc-frontend-dev
+```
+
+> En Bash/Zsh (Linux/macOS) el volumen sería: `-v $(pwd):/app`.
+
+Abrir: http://localhost:5173
+
+## Notas y solución de problemas
+
+- **Puerto ocupado**: cambia el mapeo, por ejemplo `- "8081:80"` o `-p 8081:80`.
+- **Backend/API**: si tu backend corre en tu máquina en `http://localhost:3001`, el frontend (en el navegador) podrá consumirlo sin cambios.
+- **Hot reload lento o no detecta cambios**: el contenedor de `dev` usa polling para file-watching; en proyectos grandes puede ser más pesado, pero suele ser lo más estable en Windows.
+- **Error 504 (Outdated Optimize Dep)**: fuerza la re-optimización de dependencias o reconstruye el contenedor:
+
+```bash
+npm run dev:force
+```
+
+En Docker (dev):
+
+```bash
+docker compose down -v
+docker compose up --build dev
+```
+- **Error BuildKit** (`parent snapshot ... does not exist`): limpia el cache y reconstruye:
+
+```bash
+docker buildx prune -af
+docker builder prune -af
+docker compose build --no-cache dev
+```
+
 # Características del proyecto
 
 ### Catálogo digital del menú
@@ -75,6 +183,8 @@ Diseño alineado con la estética de Rodson Coffee: elegancia artesanal, tono ce
 ## Conexión entre `api.ts` y `useProducts.ts`
 
 El archivo `api.ts` contiene la función `fetchProducts`, que se encarga de realizar una solicitud HTTP a la API para obtener los productos disponibles. Esta función utiliza `fetch` para enviar una solicitud GET al endpoint `http://localhost:3001/api/get-products`. Si la solicitud es exitosa, devuelve un array de productos extraído de la respuesta JSON. En caso de error, se captura y se registra en la consola.
+
+> Nota: actualmente la URL base del backend se controla con `VITE_API_BASE_URL`, y los endpoints preferidos del backend siguen el plan: `GET /api/products`, `GET /api/products/:id`, `GET /api/products/category/:slug`.
 
 ### Implementación de `fetchProducts` en `useProducts.ts`
 

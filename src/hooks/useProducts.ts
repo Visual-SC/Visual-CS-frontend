@@ -48,8 +48,8 @@ export const useProductStore = create<ProductStore>((set) => ({
 	productById: null as Product | null,
 	getOneProductById: async (id: string) => {
 		try {
-			const product = await fechOneProductById(id);
-			set({ productById: product.product});
+			const { product } = await fechOneProductById(id);
+			set({ productById: product });
 
 		} catch (error) {
 			console.error("Error fetching product by ID:", error);
