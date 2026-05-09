@@ -73,26 +73,21 @@
   color: #a7e9ee;
 }
 
-@media (min-width: 767.98px) {
-  .order-confirmation-floating{
-    left: calc( 50% - 260px );
-  }
-}
 
-@media (min-width: 1024px) {
-  .order-confirmation-floating{
-    left: calc( 50% - 324px );
-  }
-}
-
-@media (min-width: 425px) {
-  .order-confirmation-floating{
-    left: calc( 50% - 144px );
-  }
-}
 
 
 .order-created{
   left: calc( 50% - 388px );
+}
+
+@media (min-width: 834px) {
+  .scrollbar-hidden-tablet-up {
+    scrollbar-width: none;
+    -ms-overflow-style: none;
+  }
+
+  .scrollbar-hidden-tablet-up::-webkit-scrollbar {
+    display: none;
+  }
 }
 

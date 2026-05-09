@@ -3,7 +3,7 @@ import type { ProductOrderProps } from "../../types/order-env";
 import { CategoriesOrderList, categoryIndex } from "./data";
 import type { FloatingContentProps } from "./types";
 
-export const useConfirnmationFloating = ({productById, closeOrder, createOrder, showAddedToast}: FloatingContentProps  ) => {
+export const useConfirnmationFloating = ({productById}: FloatingContentProps  ) => {
 
     const [cantidad, setCantidad] = React.useState<number>(1)
 

@@ -1,11 +1,11 @@
-import React, { useMemo } from "react";
+import React from "react";
 import { formatPrice } from "../../utils/formatPrice";
 import { useProductStore } from "../../hooks/useProducts";
 import { useDarkBg } from "../../utils/useDarkBg";
 import type { FloatingContentProps } from "./types";
 import { useOrderStore } from "../../hooks/useOrder";
 import { useUiStore } from "../../stores/uiStore";
-import { useConfirnmationFloating } from "./UseConfirmationFloating";
+import { useConfirnmationFloating } from "./useConfirmationFloating";
 
 const OrderConfirmationFloatingContent: React.FC<FloatingContentProps> = ({
   productById,
@@ -23,9 +23,7 @@ const OrderConfirmationFloatingContent: React.FC<FloatingContentProps> = ({
   } = useConfirnmationFloating({ productById, closeOrder, createOrder, showAddedToast });
   
   return (
-    <section className="order-confirmation-floating floating flex flex-col gap-2 w-162 fixed top-16 left-0 p-4 rounded-lg bg-white z-20 md:top-1/2 md:left-1/2 md:-translate-x-1/2
-     md:-translate-y-1/2 lg:top-16 lg:left-0 lg:translate-x-0 lg:translate-y-0 max-cellphone-landscape:w-11/12 max-cellphone:w-11/12 max-cellphone:left-1/2 max-cellphone:-translate-x-1/2  
-    ">
+    <section className="order-confirmation-floating floating flex flex-col gap-2 w-162 fixed top-[40%] left-1/2 -translate-x-1/2 -translate-y-1/2 p-4 rounded-lg bg-white z-20 max-cellphone-landscape:w-11/12 max-cellphone:w-11/12">
       <header className="inline-flex justify-between">
         <h1 className="text-2xl font-semibold">{productById.nombre}</h1>
         <button className="h-7 w-7 cursor-pointer" onClick={closeOrder}>
