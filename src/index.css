@@ -73,9 +73,9 @@
   color: #a7e9ee;
 }
 
-@media (max-width: 767.98px) {
+@media (min-width: 767.98px) {
   .order-confirmation-floating{
-    left: calc( 50% - 324px );
+    left: calc( 50% - 260px );
   }
 }
 
@@ -84,6 +84,13 @@
     left: calc( 50% - 324px );
   }
 }
+
+@media (min-width: 425px) {
+  .order-confirmation-floating{
+    left: calc( 50% - 144px );
+  }
+}
+
 
 .order-created{
   left: calc( 50% - 388px );

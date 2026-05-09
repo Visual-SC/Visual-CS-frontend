@@ -15,7 +15,7 @@ const Header: React.FC = () => {
             return (
               <li key={index}>
                 <Link to={item.link} className={item.className} aria-label={`Ir a ${item.description}`}>
-                  <img src={item.image} alt={item.alt} className="max-tablet-large:h-11 h-20 w-auto max-tablet:h-full" />
+                  <img src={item.image} alt={item.alt} className="max-tablet-large:h-10 h-10 w-auto bg-cover desktop:h-20" />
                 </Link>
               </li>
             );

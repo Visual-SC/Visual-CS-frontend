@@ -5,7 +5,7 @@ export const HeaderData: (HeaderLink | HeaderImageLink)[] = [
     link: "/",
     image: "/Logo-principal-Rodson-Coffee.png",
     alt: "Rodson Coffee logo",
-    className: "flex items-center h-full no-underline max-tablet:h-11",
+    className: "flex items-center h-full no-underline max-tablet:h-full",
     description: "Logo principal"
   },
   {
