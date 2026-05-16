@@ -1,4 +1,5 @@
 import { create } from "zustand";
+import { persist } from "zustand/middleware";
 import type { OrderInitial, ProductOrderProps, ResumenOrden } from "../types/order-env";
 
 const calculateResumen = (items: ProductOrderProps[]): ResumenOrden => {
@@ -7,6 +8,20 @@ const calculateResumen = (items: ProductOrderProps[]): ResumenOrden => {
         subtotal,
         total: subtotal
     };
+};
+
+const STORAGE_KEY = "order-storage";
+
+const DEFAULT_ORDER: OrderInitial = {
+    numero_orden: "",
+    fecha: new Date().toISOString(),
+    estado: "pendiente",
+    items: [],
+    resumen: {
+        subtotal: 0,
+        total: 0
+    },
+    _id: ""
 };
 
 type OrderStore = {
@@ -19,18 +34,8 @@ type OrderStore = {
     clearOrder: () => void;
 }
 
-export const useOrderStore = create<OrderStore>((set, get) => ({
-    order: {
-        numero_orden: "",
-        fecha: new Date().toISOString(),
-        estado: "pendiente",
-        items: [],
-        resumen: {
-            subtotal: 0,
-            total: 0
-        },
-        _id:""
-    },
+export const useOrderStore = create<OrderStore>()(persist((set, get) => ({
+    order: { ...DEFAULT_ORDER },
     createOrder: (products: ProductOrderProps) => {
         set((state) => {
             const existing = state.order.items.find((item) => item._id === products._id);
@@ -134,17 +139,16 @@ export const useOrderStore = create<OrderStore>((set, get) => ({
             throw new Error(`Error al crear la orden (${response.status}): ${errorBody}`);
         }
 
-        await response.json();
+        const data = await response.json();
+        set((state) => ({
+            order: { ...state.order, _id: data._id }
+        }));
     },
     clearOrder: () => {
-        set({
-            order: {
-                numero_orden: "",
-                fecha: new Date().toISOString(),
-                estado: "pendiente",
-                items: [],
-                resumen: { subtotal: 0, total: 0 }
-            }
-        });
+        localStorage.removeItem(STORAGE_KEY);
+        set({ order: { ...DEFAULT_ORDER } });
     }
+}), {
+    name: STORAGE_KEY,
+    partialize: (state) => ({ order: state.order }),
 }));
