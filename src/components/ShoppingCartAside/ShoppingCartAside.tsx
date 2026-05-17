@@ -13,7 +13,7 @@ const ShoppingCartAside: React.FC = () => {
   const sendOder = useOrderStore((state) => state.sendOrder);
   const closecart = useDarkBg((state) => state.closeCart);
   const openBg = useDarkBg((state) => state.openBg);
-  const openOrderCreated = useDarkBg((state) => state.openOrderCreated);
+  const openCustomerData = useDarkBg((state) => state.openCustomerData);
 
   
   const shoppingCartAside = useShoppingCartAside();
@@ -89,19 +89,13 @@ const ShoppingCartAside: React.FC = () => {
             </h2>
             <button
               className="w-62 h-12 rounded-xl bg-medium-blue text-black text-center text-p-16 font-semibold mx-auto mt-4 block"
-              onClick={async () => {
-                try {
-                  await sendOder();
-                  closecart();
-                  openBg();
-                  openOrderCreated();
-                  console.log("Orden enviada exitosamente");
-                } catch (error) {
-                  console.error("Error al confirmar la orden:", error);
-                }
+              onClick={() => {
+                closecart();
+                openBg();
+                openCustomerData();
               }}
             >
-              Confirmar orden
+              Crear Orden
             </button>
           </footer>
         </>

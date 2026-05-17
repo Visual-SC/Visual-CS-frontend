@@ -1,6 +1,6 @@
 import { create } from "zustand";
 import { persist } from "zustand/middleware";
-import type { OrderInitial, ProductOrderProps, ResumenOrden } from "../types/order-env";
+import type { OrderInitial, ProductOrderProps, ResumenOrden, NumeroDeMesa } from "../types/order-env";
 
 const calculateResumen = (items: ProductOrderProps[]): ResumenOrden => {
     const subtotal = items.reduce((acc, item) => acc + item.total, 0);
@@ -21,7 +21,9 @@ const DEFAULT_ORDER: OrderInitial = {
         subtotal: 0,
         total: 0
     },
-    _id: ""
+    _id: "",
+    cliente: "",
+    numero_mesa: "A",
 };
 
 type OrderStore = {
@@ -32,6 +34,7 @@ type OrderStore = {
     removeItem: (productId: string) => void;
     sendOrder: () => Promise<void>;
     clearOrder: () => void;
+    setCustomerData: (cliente: string, numero_mesa: NumeroDeMesa) => void;
 }
 
 export const useOrderStore = create<OrderStore>()(persist((set, get) => ({
@@ -147,6 +150,11 @@ export const useOrderStore = create<OrderStore>()(persist((set, get) => ({
     clearOrder: () => {
         localStorage.removeItem(STORAGE_KEY);
         set({ order: { ...DEFAULT_ORDER } });
+    },
+    setCustomerData: (cliente: string, numero_mesa: NumeroDeMesa) => {
+        set((state) => ({
+            order: { ...state.order, cliente, numero_mesa }
+        }));
     }
 }), {
     name: STORAGE_KEY,

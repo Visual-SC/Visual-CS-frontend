@@ -7,8 +7,7 @@ function buildApiUrl(path: string) {
   const normalizedPath = path.startsWith("/") ? path : `/${path}`;
   if (!API_BASE_URL) return normalizedPath;
 
-  // Tolerant behavior: if user sets VITE_API_BASE_URL ending with /api,
-  // avoid duplicating the prefix when callers pass '/api/...'
+
   if (API_BASE_URL.endsWith("/api") && normalizedPath.startsWith("/api/")) {
     return `${API_BASE_URL}${normalizedPath.slice("/api".length)}`;
   }

@@ -73,11 +73,8 @@
   color: #a7e9ee;
 }
 
-
-
-
 .order-created{
-  left: calc( 50% - 388px );
+  left: calc( 50% - 320px );
 }
 
 @media (min-width: 834px) {
