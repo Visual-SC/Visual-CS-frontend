@@ -10,7 +10,6 @@ const ShoppingCartAside: React.FC = () => {
   const increaseItemQuantity = useOrderStore((state) => state.increaseItemQuantity);
   const decreaseItemQuantity = useOrderStore((state) => state.decreaseItemQuantity);
   const removeItem = useOrderStore((state) => state.removeItem);
-  const sendOder = useOrderStore((state) => state.sendOrder);
   const closecart = useDarkBg((state) => state.closeCart);
   const openBg = useDarkBg((state) => state.openBg);
   const openCustomerData = useDarkBg((state) => state.openCustomerData);

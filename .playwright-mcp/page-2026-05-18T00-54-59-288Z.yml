@@ -1,0 +1,287 @@
+- generic [ref=e11]:
+  - generic [ref=e13]:
+    - link "Instagram" [ref=e16] [cursor=pointer]:
+      - /url: /
+      - img "Instagram" [ref=e19]
+    - generic [ref=e24]:
+      - link "Iniciar sesión" [ref=e26] [cursor=pointer]:
+        - /url: /accounts/login/?next=%2Fp%2FDUoUUsaiSr6%2F%3Futm_source%3Dig_web_copy_link%26igsh%3DMzRlODBiNWFlZA%253D%253D&source=desktop_nav
+      - link "Registrarte" [ref=e28] [cursor=pointer]:
+        - /url: /accounts/emailsignup/
+  - main [ref=e29]:
+    - dialog [ref=e34]:
+      - generic [ref=e35]:
+        - button "Cerrar" [ref=e37] [cursor=pointer]:
+          - img "Cerrar" [ref=e39]
+        - generic [ref=e43]:
+          - generic [ref=e44]:
+            - link "Foto del perfil de rodsoncoffee" [ref=e46] [cursor=pointer]:
+              - img "Foto del perfil de rodsoncoffee" [ref=e47]
+            - generic [ref=e49]:
+              - generic [ref=e50]: No te pierdas ninguna publicación de rodsoncoffee
+              - generic [ref=e52]: Regístrate en Instagram para estar siempre al día.
+              - generic [ref=e54]:
+                - text: Al continuar, aceptas las
+                - link "Condiciones de uso" [ref=e55] [cursor=pointer]:
+                  - /url: https://help.instagram.com/581066165581870/?locale=es_LA
+                - text: y la
+                - link "Política de privacidad" [ref=e56] [cursor=pointer]:
+                  - /url: https://privacycenter.instagram.com/policy/
+                - text: de Instagram.
+          - generic [ref=e57]:
+            - link "Registrarte" [ref=e60] [cursor=pointer]:
+              - /url: /accounts/emailsignup/
+            - link "Iniciar sesión" [ref=e63] [cursor=pointer]:
+              - /url: /accounts/login/?source=desktop_dynamic_landing_dialog
+    - generic [ref=e64]:
+      - generic [ref=e66]:
+        - img [ref=e77]
+        - generic [ref=e80]:
+          - generic [ref=e82]:
+            - button "Foto del perfil de rodsoncoffee" [disabled] [ref=e84]:
+              - link "Foto del perfil de rodsoncoffee" [disabled] [ref=e86] [cursor=pointer]:
+                - img "Foto del perfil de rodsoncoffee" [ref=e87]
+            - generic [ref=e89]:
+              - generic [ref=e90]:
+                - link "rodsoncoffee" [ref=e94] [cursor=pointer]:
+                  - /url: /rodsoncoffee/
+                  - generic [ref=e97]: rodsoncoffee
+                - generic [ref=e98]:
+                  - generic [ref=e100]: •
+                  - button "Seguir" [ref=e101] [cursor=pointer]
+              - link "Rodsoncoffee" [ref=e105] [cursor=pointer]:
+                - /url: /explore/locations/113771923681630/rodsoncoffee/
+            - button "Más opciones" [ref=e108] [cursor=pointer]:
+              - img "Más opciones" [ref=e111]
+          - separator [ref=e115]
+          - generic [ref=e117]:
+            - generic [ref=e119]:
+              - link "Foto del perfil de rodsoncoffee" [ref=e121] [cursor=pointer]:
+                - /url: /rodsoncoffee/
+                - img "Foto del perfil de rodsoncoffee" [ref=e122]
+              - generic [ref=e126]:
+                - generic [ref=e127]:
+                  - link "rodsoncoffee" [ref=e128] [cursor=pointer]:
+                    - /url: /rodsoncoffee/
+                    - generic [ref=e131]: rodsoncoffee
+                  - time [ref=e133]: 13 sem
+                - generic [ref=e134]:
+                  - text: ¿Cansado de que tu café en casa no sepa igual al de tu cafetería favorita? ☕️🤔
+                  - text: El secreto no está solo en el grano, sino en el ritual.
+                  - text: En nuestro taller de filtrados lo entenderás todo, hablaremos de molienda, tiempo y taza.
+                  - text: No necesitas experiencia previa.
+                  - text: Info:3016954232
+            - button "Cargar más comentarios" [ref=e136] [cursor=pointer]:
+              - img "Cargar más comentarios" [ref=e138]
+            - generic [ref=e143]:
+              - link "Foto del perfil de angieprada7275" [ref=e146] [cursor=pointer]:
+                - /url: /angieprada7275/
+                - img "Foto del perfil de angieprada7275" [ref=e147]
+              - generic [ref=e149]:
+                - generic [ref=e151]:
+                  - generic [ref=e152]:
+                    - link "angieprada7275" [ref=e154] [cursor=pointer]:
+                      - /url: /angieprada7275/
+                      - generic [ref=e157]: angieprada7275
+                    - link "13 sem" [ref=e159] [cursor=pointer]:
+                      - /url: /p/DUoUUsaiSr6/c/17979183548974035/
+                      - time [ref=e160]: 13 sem
+                  - generic [ref=e162]: Cuando es
+                - generic [ref=e163]:
+                  - button "1 Me gusta" [ref=e164] [cursor=pointer]:
+                    - generic [ref=e166]: 1 Me gusta
+                  - button "Responder" [ref=e167] [cursor=pointer]:
+                    - generic [ref=e169]: Responder
+          - generic [ref=e170]:
+            - generic [ref=e171]:
+              - generic [ref=e172]:
+                - button "Me gusta" [ref=e175] [cursor=pointer]:
+                  - img "Me gusta" [ref=e178]
+                - button "15" [ref=e180] [cursor=pointer]
+                - button "Comentar" [ref=e182] [cursor=pointer]:
+                  - img "Comentar" [ref=e184]
+                - button "2" [ref=e186] [cursor=pointer]
+                - button "Compartir" [ref=e187] [cursor=pointer]:
+                  - img "Compartir" [ref=e188]
+              - button "Guardar" [ref=e192] [cursor=pointer]:
+                - img "Guardar" [ref=e194]
+            - link "11 de febrero" [ref=e198] [cursor=pointer]:
+              - /url: /rodsoncoffee/p/DUoUUsaiSr6/
+              - time [ref=e200]: 11 de febrero
+          - generic [ref=e205]:
+            - link "Inicia sesión" [ref=e206] [cursor=pointer]:
+              - /url: /accounts/login/?next=%2Fp%2FDUoUUsaiSr6%2F&source=post_comment_input
+            - text: para indicar que te gusta o comentar.
+      - separator [ref=e208]
+      - generic [ref=e209]:
+        - generic [ref=e211]:
+          - text: Más publicaciones de
+          - link "rodsoncoffee" [ref=e212] [cursor=pointer]:
+            - /url: /rodsoncoffee/
+        - generic [ref=e215]:
+          - generic [ref=e216]:
+            - link "Clip" [ref=e218] [cursor=pointer]:
+              - /url: /abrazarte_co/reel/DX9XK4Lyzg0/
+              - generic:
+                - generic:
+                  - generic:
+                    - img "Clip"
+            - link "Clip" [ref=e223] [cursor=pointer]:
+              - /url: /rodsoncoffee/reel/DXypZF-PgCX/
+              - generic:
+                - generic:
+                  - generic:
+                    - img "Clip"
+            - link "Secuencia" [ref=e228] [cursor=pointer]:
+              - /url: /rodsoncoffee/p/DXaAObBASGI/
+              - generic:
+                - generic:
+                  - generic:
+                    - img "Secuencia"
+          - generic [ref=e232]:
+            - link "Clip" [ref=e234] [cursor=pointer]:
+              - /url: /rodsoncoffee/reel/DXZCSMDDz8N/
+              - generic:
+                - generic:
+                  - generic:
+                    - img "Clip"
+            - link [ref=e239] [cursor=pointer]:
+              - /url: /rodsoncoffee/p/DXH1PEvEdi0/
+            - link "Clip" [ref=e244] [cursor=pointer]:
+              - /url: /rodsoncoffee/reel/DWc8N3mjVKz/
+              - generic:
+                - generic:
+                  - generic:
+                    - img "Clip"
+          - generic [ref=e248]:
+            - link "Clip" [ref=e250] [cursor=pointer]:
+              - /url: /abrazarte_co/reel/DWJ1n29kq14/
+              - generic:
+                - generic:
+                  - generic:
+                    - img "Clip"
+            - link "Clip" [ref=e255] [cursor=pointer]:
+              - /url: /rodsoncoffee/reel/DVrmD1GDaL2/
+              - generic:
+                - generic:
+                  - generic:
+                    - img "Clip"
+            - link "Clip" [ref=e260] [cursor=pointer]:
+              - /url: /abrazarte_co/reel/DVHd1WngbP7/
+              - generic:
+                - generic:
+                  - generic:
+                    - img "Clip"
+        - generic [ref=e264]:
+          - link "Ver más publicaciones" [ref=e266] [cursor=pointer]:
+            - /url: /rodsoncoffee/
+            - generic [ref=e267]: Ver más publicaciones
+          - separator [ref=e268]
+  - contentinfo [ref=e269]:
+    - generic [ref=e270]:
+      - generic [ref=e272]:
+        - link "Meta" [ref=e274] [cursor=pointer]:
+          - /url: https://about.meta.com/
+          - generic [ref=e275]: Meta
+        - link "Información" [ref=e277] [cursor=pointer]:
+          - /url: https://about.instagram.com/
+          - generic [ref=e278]: Información
+        - link "Blog" [ref=e280] [cursor=pointer]:
+          - /url: https://about.instagram.com/blog/
+          - generic [ref=e281]: Blog
+        - link "Empleo" [ref=e283] [cursor=pointer]:
+          - /url: https://about.instagram.com/about-us/careers
+          - generic [ref=e284]: Empleo
+        - link "Ayuda" [ref=e286] [cursor=pointer]:
+          - /url: https://help.instagram.com/
+          - generic [ref=e287]: Ayuda
+        - link "API" [ref=e289] [cursor=pointer]:
+          - /url: https://developers.facebook.com/docs/instagram
+          - generic [ref=e290]: API
+        - link "Privacidad" [ref=e292] [cursor=pointer]:
+          - /url: /legal/privacy/
+          - generic [ref=e293]: Privacidad
+        - link "Condiciones" [ref=e295] [cursor=pointer]:
+          - /url: /legal/terms/
+          - generic [ref=e296]: Condiciones
+        - link "Ubicaciones" [ref=e298] [cursor=pointer]:
+          - /url: /explore/locations/
+          - generic [ref=e299]: Ubicaciones
+        - link "Popular" [ref=e301] [cursor=pointer]:
+          - /url: /popular/
+          - generic [ref=e302]: Popular
+        - link "Instagram Lite" [ref=e304] [cursor=pointer]:
+          - /url: /web/lite/
+          - generic [ref=e305]: Instagram Lite
+        - link "Meta AI" [ref=e307] [cursor=pointer]:
+          - /url: https://www.meta.ai/?utm_source=foa_web_footer
+          - generic [ref=e308]: Meta AI
+        - link "Threads" [ref=e310] [cursor=pointer]:
+          - /url: https://www.threads.com/
+          - generic [ref=e311]: Threads
+        - link "Importación de contactos y no usuarios" [ref=e313] [cursor=pointer]:
+          - /url: https://www.facebook.com/help/instagram/261704639352628
+          - generic [ref=e314]: Importación de contactos y no usuarios
+        - link "Meta Verified" [ref=e316] [cursor=pointer]:
+          - /url: /accounts/meta_verified/?entrypoint=web_footer
+          - generic [ref=e317]: Meta Verified
+      - generic [ref=e318]:
+        - generic [ref=e319] [cursor=pointer]:
+          - generic [ref=e320]:
+            - generic [ref=e321]: Español
+            - img "Ícono de comilla angular abajo" [ref=e324]
+          - combobox "Cambiar idioma de visualización" [ref=e326]:
+            - option "Afrikaans"
+            - option "العربية"
+            - option "Čeština"
+            - option "Dansk"
+            - option "Deutsch"
+            - option "Ελληνικά"
+            - option "English"
+            - option "English (UK)"
+            - option "Español (España)"
+            - option "Español" [selected]
+            - option "فارسی"
+            - option "Suomi"
+            - option "Français"
+            - option "עברית"
+            - option "Bahasa Indonesia"
+            - option "Italiano"
+            - option "日本語"
+            - option "한국어"
+            - option "Bahasa Melayu"
+            - option "Norsk"
+            - option "Nederlands"
+            - option "Polski"
+            - option "Português (Brasil)"
+            - option "Português (Portugal)"
+            - option "Русский"
+            - option "Svenska"
+            - option "ภาษาไทย"
+            - option "Filipino"
+            - option "Türkçe"
+            - option "中文(简体)"
+            - option "中文(台灣)"
+            - option "বাংলা"
+            - option "ગુજરાતી"
+            - option "हिन्दी"
+            - option "Hrvatski"
+            - option "Magyar"
+            - option "ಕನ್ನಡ"
+            - option "മലയാളം"
+            - option "मराठी"
+            - option "नेपाली"
+            - option "ਪੰਜਾਬੀ"
+            - option "සිංහල"
+            - option "Slovenčina"
+            - option "தமிழ்"
+            - option "తెలుగు"
+            - option "اردو"
+            - option "Tiếng Việt"
+            - option "中文(香港)"
+            - option "Български"
+            - option "Français (Canada)"
+            - option "Română"
+            - option "Српски"
+            - option "Українська"
+        - generic [ref=e328]: © 2026 Instagram from Meta
