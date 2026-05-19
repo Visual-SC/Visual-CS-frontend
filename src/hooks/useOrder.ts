@@ -2,7 +2,7 @@ import { create } from "zustand";
 import { persist } from "zustand/middleware";
 import type { OrderInitial, ProductOrderProps, ResumenOrden, NumeroDeMesa } from "../types/order-env";
 
-const calculateResumen = (items: ProductOrderProps[]): ResumenOrden => {
+const calculateSummary = (items: ProductOrderProps[]): ResumenOrden => {
     const subtotal = items.reduce((acc, item) => acc + item.total, 0);
     return {
         subtotal,
@@ -60,7 +60,7 @@ export const useOrderStore = create<OrderStore>()(persist((set, get) => ({
                 order: {
                     ...state.order,
                     items,
-                    resumen: calculateResumen(items)
+                    resumen: calculateSummary(items)
                 }
             };
         });
@@ -81,7 +81,7 @@ export const useOrderStore = create<OrderStore>()(persist((set, get) => ({
                 order: {
                     ...state.order,
                     items,
-                    resumen: calculateResumen(items)
+                    resumen: calculateSummary(items)
                 }
             };
         });
@@ -102,7 +102,7 @@ export const useOrderStore = create<OrderStore>()(persist((set, get) => ({
                 order: {
                     ...state.order,
                     items,
-                    resumen: calculateResumen(items)
+                    resumen: calculateSummary(items)
                 }
             };
         });
@@ -114,7 +114,7 @@ export const useOrderStore = create<OrderStore>()(persist((set, get) => ({
                 order: {
                     ...state.order,
                     items,
-                    resumen: calculateResumen(items)
+                    resumen: calculateSummary(items)
                 }
             };
         });

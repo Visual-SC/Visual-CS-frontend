@@ -7,7 +7,7 @@ import CategoriesTabletAside from "../../components/CategoriesTabletAside/Catego
 const Home: React.FC = () => {
   return (
     <main className="p-4 bg-white text-black z-0 ">
-      <section className="grid max-tablet-large:flex max-tablet-large:flex-col grid-cols-[28%_72%]">
+      <section className="grid max-tablet-large:flex max-tablet-large:flex-col grid-cols-[20%_80%]">
         <CategoriesTabletAside />
         <CategoriesAside />
         <ProductsByCategoryGrid />
