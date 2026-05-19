@@ -15,10 +15,9 @@ const CategoriesAside: React.FC<CategoriesAsideProps> = () => {
 
   //funciones de llamado para el evento ☕
   const { event } = useGetEvent();
-  console.log(event)
 
   return (
-    <aside className="max-tablet-large:hidden flex flex-col gap-2 col-start-1 col-end-2">
+    <aside className="max-tablet-large:hidden flex flex-col col-start-1 col-end-2">
       <ul className="flex flex-col" ref={container}>
         {CategoriesAsideData.map((item, index) => (            
               <Link 
@@ -36,11 +35,12 @@ const CategoriesAside: React.FC<CategoriesAsideProps> = () => {
               </Link>
           ))}
       </ul>
-      <section>
-      <figure className="w-68 h-68 rounded-xl mt-12 flex items-end p-2 relative">
+      <section className="flex flex-col mt-9 w-64">
+      <h1 className="text-center font-antonio text-h3-24 drop-shadow-[0_2px_2px_rgba(0,0,0,0.51)] text-glacier-blue">ANUNCIOS</h1>  
+      <figure className="w-64 h-64 rounded-xl  flex items-end p-2 relative">
           <img src="/event-image.png" alt={event.title} className="w-full h-full object-cover rounded-xl text-white"/>
-          <footer className="w-[90%] bg-black/40 absolute bottom-3 left-3 p-2 rounded-b-xl text-white flex flex-col">
-            <h3 className="font-haviland text-3xl text-white">{event.title}</h3>
+          <footer className="w-[90%] bg-black/30 absolute bottom-3 left-3 p-2 rounded-b-xl text-white flex flex-col">
+            <h3 className="font-haviland text-4xl text-white">{event.title}</h3>
             <p className="text-p-16">
               {new Date(event.date).toLocaleDateString('es-ES', { day: 'numeric', month: 'long', year: 'numeric' })}
             </p>
